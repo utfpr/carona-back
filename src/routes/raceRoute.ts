@@ -29,7 +29,7 @@ raceRoute.get('/', resolveController(async(_: Request, res: Response) => {
     return await listRaceController.handle(_, res)
 }))
 
-raceRoute.put('/', resolveController(async(req: Request, res: Response) => {
+raceRoute.put('/:id', resolveController(async(req: Request, res: Response) => {
     return await createRaceController.handle(req, res)
 }))
 
