@@ -1,4 +1,5 @@
 import { IUser } from "../interfaces/IUserInterface";
+import { createUUID } from "../utils/createUUID";
 
 export class User{
     id: IUser['id'];
@@ -9,7 +10,7 @@ export class User{
     updatedAt: IUser['updatedAt']
 
     constructor(props: Omit<IUser, 'id'>, id?:string){
-        this.id = 'w';
+        this.id =  id || createUUID();
         this.name = props.name;
         this.email = props.email;
         this.password = props.password;

@@ -1,0 +1,16 @@
+import { Request, Response } from "express"
+import { ICarRepository } from "../../../interfaces/ICarRepository"
+import { DeleteCarService } from "../../../services/car/DeleteCarService"
+import { ICar } from "../../../interfaces/ICarInterface"
+
+export class DeleteCarController{
+    constructor(private carRepo: ICarRepository){}
+    async handle(req: Request, res: Response): Promise<Response>{
+        const { id } = req.params;
+
+        const deleteCarService = new DeleteCarService(this.carRepo)
+        await deleteCarService.execute({ id })
+
+        return res.status(200).send()
+    }
+}

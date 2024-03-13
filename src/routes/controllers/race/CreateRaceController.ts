@@ -1,0 +1,28 @@
+import { Request, Response } from "express";
+import { IRace } from "../../../interfaces/IRaceInterface";
+import { IHashRepository } from "../../../interfaces/IHashRepository";
+import { CreateRaceService } from "../../../services/race/CreateRaceService";
+import { IRaceRepository } from "../../../interfaces/IRaceRepository";
+
+export class CreateRaceController{
+    constructor(
+        private raceRepo: IRaceRepository
+    ){}
+    async handle(req: Request, res: Response): Promise<Response>{
+        const{ originPoint, endPoint, timeStart, userId, carId} = req.body;
+
+        const createRaceService = new CreateRaceService(
+            this.raceRepo
+        )
+
+        const race = await createRaceService.execute({
+            originPoint,
+            endPoint,
+            timeStart,
+            userId,
+            carId
+        });
+
+        return res.status(201).json(race)
+    }
+}

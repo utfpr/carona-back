@@ -1,0 +1,28 @@
+###Create
+POST http://localhost:3333/car
+Content-Type: application/json
+
+{
+    "plate": "hoo1111",
+    "description": "claysono2@em",
+    "userId": "4118f928-54ba-48f5-a957-65fadaf860c4"
+}
+
+###Update
+PUT http://localhost:3333/car
+Content-Type: application/json
+
+{
+    "plate": "Calvo",
+    "description": "claysono2@email.com",
+    "userId": "A1234567.a"
+}
+
+###Delete
+DELETE http://localhost:3333/car
+
+###Get
+GET http://localhost:3333/car
+
+###Get all
+GET http://localhost:3333/car

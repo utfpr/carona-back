@@ -1,0 +1,40 @@
+import { Request, Response, Router } from "express";
+import { RaceRepository } from "../repositories/RaceRepository";
+import { CreateRaceController } from "./controllers/race/CreateRaceController";
+import { GetRaceController } from "./controllers/race/GetRaceController";
+import { ListRacesController } from "./controllers/race/ListRaceController";
+import { UpdateRaceController } from "./controllers/race/UpdateRaceController";
+import { DeleteRaceController } from "./controllers/race/DeleteRaceController";
+import { resolveController } from "../adapters/resolverController";
+import { IRaceRepository } from "../interfaces/IRaceRepository";
+
+export const raceRoute = Router();
+
+const raceRepo: IRaceRepository = new RaceRepository()
+const createRaceController = new CreateRaceController(raceRepo)
+const getRaceController = new GetRaceController(raceRepo)
+const listRaceController = new ListRacesController(raceRepo)
+const updateRaceController = new UpdateRaceController(raceRepo)
+const deleteRaceController = new DeleteRaceController(raceRepo)
+
+raceRoute.post('/', resolveController(async(req: Request, res: Response) => {
+    return await createRaceController.handle(req, res)
+}))
+
+raceRoute.get('/:id', resolveController(async(req: Request, res: Response) => {
+    return await getRaceController.handle(req, res)
+}))
+
+raceRoute.get('/', resolveController(async(_: Request, res: Response) => {
+    return await listRaceController.handle(_, res)
+}))
+
+raceRoute.put('/', resolveController(async(req: Request, res: Response) => {
+    return await createRaceController.handle(req, res)
+}))
+
+raceRoute.delete('/', resolveController(async(req: Request, res: Response) => {
+    return await deleteRaceController.handle(req, res)
+}))
+
+

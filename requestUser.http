@@ -1,0 +1,27 @@
+POST http://localhost:3333/user
+Content-Type: application/json
+
+{
+    "name": "Calvo",
+    "email": "claysono2@email.com",
+    "password": "A1234567.a"
+}
+
+###Update
+PUT http://localhost:3333/users/3911a759-cce8-4f5b-936d-a16eb2811103
+Content-Type: application/json
+
+{
+    "name": "calvofelipepoderosoN555o000me",
+    "email": "novoemail@calvo.com",
+    "password": "NovaS.enha123a"
+}
+
+###Delete
+DELETE http://localhost:3333/users/a937ad56-1e25-4902-b516-9c6ee844b5e2s
+
+###Get all
+GET http://localhost:3333/users
+
+### Get User
+GET http://localhost:3333/users/7dcf243c-8391-48b6-a5e7-501339848802
