@@ -22,7 +22,7 @@ Content-Type: application/json
 DELETE http://localhost:3333/car
 
 ###Get
-GET http://localhost:3333/car
+GET http://localhost:3333/car/
 
 ###Get all
-GET http://localhost:3333/car
+GET http://localhost:3333/car/user/4118f928-54ba-48f5-a957-65fadaf860c4
