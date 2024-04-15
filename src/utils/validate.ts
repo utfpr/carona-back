@@ -1,7 +1,7 @@
 import { isFuture } from 'date-fns'
 
 export function validateEmail(email: string): boolean {
-    if(email.indexOf('.') === -1 || email.indexOf('@') === -1){
+    if(email.length < 3){
         return false;
     }
 
@@ -9,10 +9,9 @@ export function validateEmail(email: string): boolean {
 }
 
 export function validatePassword(password: string): boolean{
-    let regexPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})');
-     
-    if(!regexPassword.test(password)){
-        return false;
+    
+    if(password.length < 5){
+        return false
     }
 
     return true;

@@ -19,12 +19,12 @@ export class UpdateUserService {
     const result = await this.userRepo.findOneUser(id);
 
     if (email && !validateEmail(email)) {
-      throw new AppError("Email inválido");
+      throw new AppError("Nome de usuário inválido. São necessários pelo menos 3 caracteres");
     }
 
     if (password && !validatePassword(password)) {
       throw new AppError(
-        "A senha deve possuir pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial"
+        "A senha deve possuir pelo menos 5 caracteres"
       );
     }
 
