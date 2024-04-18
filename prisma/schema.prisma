@@ -20,7 +20,7 @@ model user{
   updatedAt DateTime @default(now())
   car car[]
   race race[]
-
+  passengers passengers[]
 }
 
 model car{
@@ -44,5 +44,15 @@ model race{
   raceCar car @relation(fields: [carId], references: [id])
   carId String @db.Uuid
   createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  updatedAt DateTime @default(now()) 
+  seats Int @db.Integer
+  passengers passengers[]
+}
+
+model passengers{
+  id String @id @db.Uuid
+  users user @relation(fields: [userId], references: [id])
+  userId String[]
+  race race @relation(fields: [raceId], references: [id])
+  raceId String
 }
