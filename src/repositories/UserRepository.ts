@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 
 export class UserRepository implements IUserRepository{
     async findByEmail(email: string): Promise<IUser> {
-        let result = await prisma.user.findFirst({
+        let result = await prisma.user.findUnique({
             where: { email },
           });
 
@@ -18,7 +18,7 @@ export class UserRepository implements IUserRepository{
           return result;
     }
     async findAll(): Promise<IUser[]> {
-        const  result = await prisma.user.findMany()
+        const result = await prisma.user.findMany()
         return result;
     }
     

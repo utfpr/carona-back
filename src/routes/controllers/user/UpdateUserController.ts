@@ -8,8 +8,9 @@ export class UpdateUserController{
     async handle(req: Request, res: Response): Promise<Response>{
         const { id } =req.params;
         const {name, email, password }: IUser = req.body;
-
+        console.log('1')
         const updateUserService = new UpdateUserService(this.userRepo)
+        console.log('2')
         await updateUserService.execute({
             id, 
             name, 

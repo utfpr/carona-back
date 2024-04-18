@@ -1,9 +1,8 @@
 import { IUserRepository } from "../../interfaces/IUserRepository";
-import { IUserUpdateRequest } from "../../interfaces/IUserInterface";
+import { IUser, IUserUpdateRequest } from "../../interfaces/IUserInterface";
 import {
   validateEmail,
   validatePassword,
-  validatePhoneNumber,
 } from "../../utils/validate";
 import { User } from "../../entities/user";
 import { AppError } from "../../errors/AppError";
@@ -15,7 +14,7 @@ export class UpdateUserService {
     name,
     email,
     password,
-  }: IUserUpdateRequest): Promise<void> {
+  }: IUserUpdateRequest): Promise<IUser> {
     const result = await this.userRepo.findOneUser(id);
 
     if (email && !validateEmail(email)) {
@@ -38,6 +37,8 @@ export class UpdateUserService {
       result.id
     );
 
-    await this.userRepo.update(user.toJSON(), id);
+    const result2 = await this.userRepo.update(user.toJSON(), id);
+
+    return result2
   }
 }

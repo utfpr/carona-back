@@ -21,7 +21,7 @@ export class User{
     toJSON(): IUser{
         return {
             id: this.id,
-            name: this.id,
+            name: this.name,
             email: this.email,
             password: this.password,
             createdAt: this.createdAt,
