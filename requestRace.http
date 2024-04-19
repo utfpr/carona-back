@@ -6,8 +6,9 @@ Content-Type: application/json
     "originPoint": "oga maguila",
     "endPoint": "fiorella",
     "timeStart": "20:03",
-    "userId": "4118f928-54ba-48f5-a957-65fadaf860c4",
-    "carId": "0a32eb3f-c81e-4658-8450-ed6852f8a833"
+    "seats": 2,
+    "userId": "8b25a5b4-1a87-4be8-905d-373bce9ba5c2",
+    "carId": "0d2f8604-b1f1-45c2-a535-aa0d48716927"
 }
 
 ###Update

@@ -9,7 +9,7 @@ export class CreateRaceController{
         private raceRepo: IRaceRepository
     ){}
     async handle(req: Request, res: Response): Promise<Response>{
-        const{ originPoint, endPoint, timeStart, userId, carId} = req.body;
+        const{ originPoint, endPoint, timeStart, userId, carId, seats} = req.body;
 
         const createRaceService = new CreateRaceService(
             this.raceRepo
@@ -20,7 +20,8 @@ export class CreateRaceController{
             endPoint,
             timeStart,
             userId,
-            carId
+            carId,
+            seats
         });
 
         return res.status(201).json(race)

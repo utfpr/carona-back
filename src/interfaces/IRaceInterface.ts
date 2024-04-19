@@ -5,6 +5,7 @@ export interface IRace{
   timeStart: string
   userId:string
   carId: string
+  seats: number
   createdAt?: Date
   updatedAt?: Date
 }
@@ -15,6 +16,7 @@ export interface IRaceCreateRequest{
   timeStart: string
   userId:string
   carId: string
+  seats: number
 }
 
 export interface IRaceGetRequest{
@@ -23,11 +25,12 @@ export interface IRaceGetRequest{
 
 export interface IRaceUpdateRequest{
   id: string 
-  originPoint: string 
-  endPoint: string
-  timeStart: string
-  userId:string
-  carId: string
+  originPoint?: string 
+  endPoint?: string
+  timeStart?: string
+  userId?:string
+  carId?: string
+  seats?: number
 }
 
 export interface IRaceDeleteRequest{

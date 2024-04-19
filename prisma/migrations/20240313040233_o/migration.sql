@@ -1,3 +1,0 @@
--- AlterTable
-ALTER TABLE "race" ALTER COLUMN "timeStart" DROP DEFAULT,
-ALTER COLUMN "timeStart" SET DATA TYPE VARCHAR(255);

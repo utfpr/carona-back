@@ -7,13 +7,22 @@ const prisma = new PrismaClient();
 
 export class RaceRepository implements IRaceRepository{
     async  findAll(): Promise<IRace[]> {
-        const result = await prisma.race.findMany();
+        const result = await prisma.race.findMany({
+            include: {
+                driver: true,
+                passengers: true
+            }
+        });
         return result;
     }
 
     async findOneRace(id: string): Promise<IRace> {
         const result = await prisma.race.findUnique({
-            where: { id }
+            where: { id },
+            include: {
+                driver: true,
+                passengers: true
+            }
         })
 
         if(!result) throw Error('Race not found')

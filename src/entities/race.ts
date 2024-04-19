@@ -9,6 +9,7 @@ export class race{
   timeStart: IRace['timeStart']
   userId: IRace['userId']
   carId: IRace['carId']
+  seats: IRace['seats']
   createdAt: IRace['createdAt']
   updatedAt: IRace['updatedAt']
 
@@ -19,6 +20,7 @@ export class race{
     this.timeStart = props.timeStart;
     this.userId = props.userId;
     this.carId = props.carId;
+    this.seats = props.seats;
     this.createdAt = props.createdAt || new Date();
     this.updatedAt = new Date()
   }
@@ -29,6 +31,7 @@ export class race{
         originPoint: this.originPoint,
         endPoint: this.endPoint,
         timeStart: this.timeStart,
+        seats: this.seats,
         userId: this.userId,
         carId: this.carId,
         createdAt: this.createdAt,

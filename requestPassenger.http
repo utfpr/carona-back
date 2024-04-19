@@ -1,0 +1,5 @@
+###Create
+POST http://localhost:3333/user/:userId/race/:raceId
+
+###Delete
+DELETE http://localhost:3333/

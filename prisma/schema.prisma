@@ -52,7 +52,7 @@ model race{
 model passengers{
   id String @id @db.Uuid
   users user @relation(fields: [userId], references: [id])
-  userId String[]
+  userId String @db.Uuid
   race race @relation(fields: [raceId], references: [id])
-  raceId String
+  raceId String @db.Uuid
 }

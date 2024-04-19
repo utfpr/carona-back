@@ -7,7 +7,7 @@ export class UpdateRaceController{
     constructor(private raceRepo: IRaceRepository){}
     async handle(req: Request, res: Response): Promise<Response>{
         const { id } = req.params;
-        const { originPoint, endPoint, timeStart, userId, carId}: IRace = req.body;
+        const { originPoint, endPoint, timeStart, userId, carId, seats}: IRace = req.body;
 
         const updateRaceService = new UpdateRaceService(this.raceRepo)
         
@@ -17,7 +17,8 @@ export class UpdateRaceController{
             endPoint,
             timeStart,
             userId,
-            carId
+            carId,
+            seats
         })
 
         return res.status(201).json()

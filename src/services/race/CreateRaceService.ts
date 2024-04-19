@@ -10,14 +10,16 @@ export class CreateRaceService{
         endPoint,
         timeStart,
         userId,
-        carId
+        carId,
+        seats
     }: IRaceCreateRequest): Promise<void>{
         const Race = new race({
         originPoint,
         endPoint,
         timeStart,
         userId,
-        carId
+        carId,
+        seats
         });
 
         await this.raceRepo.insert(Race.toJSON())
