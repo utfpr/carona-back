@@ -27,7 +27,7 @@ CREATE TABLE "race" (
     "id" UUID NOT NULL,
     "originPoint" VARCHAR(255) NOT NULL,
     "endPoint" VARCHAR(255) NOT NULL,
-    "timeStart" VARCHAR(255) NOT NULL,
+    "timeStart" TIMESTAMPTZ NOT NULL,
     "userId" UUID NOT NULL,
     "carId" UUID NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,

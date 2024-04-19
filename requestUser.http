@@ -2,8 +2,8 @@ POST http://localhost:3333/user
 Content-Type: application/json
 
 {
-    "name": "Fazoelli",
-    "email": "ocktoberfest2",
+    "name": "baza-kun",
+    "email": "bazinha2",
     "password": "calma"
 }
 
@@ -32,6 +32,6 @@ POST http://localhost:3333/auth
 Content-Type: application/json
 
 {
-    "email": "ontem",
-    "password": "amanhã"
+    "email": "bazinha2",
+    "password": "calma"
 }

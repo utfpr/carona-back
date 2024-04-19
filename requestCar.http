@@ -5,7 +5,7 @@ Content-Type: application/json
 {
     "plate": "hoo1111",
     "description": "claysono2@em",
-    "userId": "4118f928-54ba-48f5-a957-65fadaf860c4"
+    "userId": "8b25a5b4-1a87-4be8-905d-373bce9ba5c2"
 }
 
 ###Update
@@ -25,4 +25,4 @@ DELETE http://localhost:3333/car
 GET http://localhost:3333/car/
 
 ###Get all
-GET http://localhost:3333/car/user/4118f928-54ba-48f5-a957-65fadaf860c4
+GET http://localhost:3333/car/user/8b25a5b4-1a87-4be8-905d-373bce9ba5c2

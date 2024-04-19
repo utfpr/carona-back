@@ -2,7 +2,7 @@ export interface IRace{
   id: string 
   originPoint: string 
   endPoint: string
-  timeStart: string
+  timeStart: Date
   userId:string
   carId: string
   seats: number
@@ -13,7 +13,7 @@ export interface IRace{
 export interface IRaceCreateRequest{
   originPoint: string 
   endPoint: string
-  timeStart: string
+  timeStart: Date
   userId:string
   carId: string
   seats: number
@@ -27,7 +27,7 @@ export interface IRaceUpdateRequest{
   id: string 
   originPoint?: string 
   endPoint?: string
-  timeStart?: string
+  timeStart?: Date
   userId?:string
   carId?: string
   seats?: number
