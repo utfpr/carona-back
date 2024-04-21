@@ -5,10 +5,10 @@ Content-Type: application/json
 {
     "originPoint": "oga maguila",
     "endPoint": "fiorella",
-    "timeStart": "20:03",
+    "timeStart":"2024-04-21T18:57:29.499Z",
     "seats": 2,
-    "userId": "8b25a5b4-1a87-4be8-905d-373bce9ba5c2",
-    "carId": "0d2f8604-b1f1-45c2-a535-aa0d48716927"
+    "userId": "a2d676d6-d213-4a3f-801d-060ab214b126",
+    "carId": "dd8b2ad9-fdc8-407b-9db7-201419af48bb"
 }
 
 ###Update
@@ -24,7 +24,7 @@ Content-Type: application/json
 }
 
 ###Delete
-DELETE http://localhost:3333/race
+DELETE http://localhost:3333/race/0e888ae6-96fa-40f8-a06d-fa87a429e5fd
 
 ###Get
 GET http://localhost:3333/race/

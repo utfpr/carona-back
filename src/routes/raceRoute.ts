@@ -33,7 +33,7 @@ raceRoute.put('/:id', resolveController(async(req: Request, res: Response) => {
     return await createRaceController.handle(req, res)
 }))
 
-raceRoute.delete('/', resolveController(async(req: Request, res: Response) => {
+raceRoute.delete('/:id', resolveController(async(req: Request, res: Response) => {
     return await deleteRaceController.handle(req, res)
 }))
 

@@ -46,7 +46,7 @@ export class RaceRepository implements IRaceRepository{
         return result
     }
     async delete(id: string): Promise<void> {
-       await prisma.user.delete({
+       await prisma.race.delete({
         where: { id }
        })
     }
