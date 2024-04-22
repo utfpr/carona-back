@@ -53,6 +53,6 @@ model passengers{
   id String @id @db.Uuid
   users user @relation(fields: [userId], references: [id])
   userId String @db.Uuid
-  race race @relation(fields: [raceId], references: [id])
+  race race @relation(fields: [raceId], references: [id], onDelete: Cascade)
   raceId String @db.Uuid
 }

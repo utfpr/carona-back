@@ -12,6 +12,7 @@ export class PassengerRepository implements IPassengerRepository{
             data: { userId: props.userId, raceId: props.raceId, id: props.id} 
         })
         console.log("4")
+        console.log(result)
         return result
     }
 
