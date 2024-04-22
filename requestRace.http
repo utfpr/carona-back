@@ -24,7 +24,7 @@ Content-Type: application/json
 }
 
 ###Delete
-DELETE http://localhost:3333/race/0e888ae6-96fa-40f8-a06d-fa87a429e5fd
+DELETE http://localhost:3333/race/40b44593-ead1-40c9-91fd-2b9937c198df
 
 ###Get
 GET http://localhost:3333/race/

@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { IRaceRepository } from "../interfaces/IRaceRepository";
-import { IRace } from "../interfaces/IRaceInterface";
+import { IRace, IRaceUpdateRequest } from "../interfaces/IRaceInterface";
 import { race } from "../entities/race";
 
 const prisma = new PrismaClient();
@@ -37,10 +37,11 @@ export class RaceRepository implements IRaceRepository{
         return result
     }
 
-    async update(props: IRace, id: string): Promise<IRace> {
+    async update(props: IRaceUpdateRequest, id: string): Promise<IRace> {
+        console.log(props)
         const result = await prisma.race.update({
             where: { id },
-            data: props
+            data: { seats: props.seats, originPoint: props.originPoint, endPoint: props.endPoint, timeStart: props.timeStart}
         })
 
         return result
