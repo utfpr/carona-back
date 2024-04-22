@@ -38,10 +38,11 @@ export class RaceRepository implements IRaceRepository{
     }
 
     async update(props: IRaceUpdateRequest, id: string): Promise<IRace> {
-        console.log(props)
+        console.log(props.seats)
+        const vaga = props.seats;
         const result = await prisma.race.update({
             where: { id },
-            data: { seats: props.seats, originPoint: props.originPoint, endPoint: props.endPoint, timeStart: props.timeStart}
+            data: { seats: vaga, originPoint: props.originPoint, endPoint: props.endPoint, timeStart: props.timeStart}
         })
 
         return result

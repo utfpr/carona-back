@@ -30,7 +30,7 @@ raceRoute.get('/', resolveController(async(_: Request, res: Response) => {
 }))
 
 raceRoute.put('/:id', resolveController(async(req: Request, res: Response) => {
-    return await createRaceController.handle(req, res)
+    return await updateRaceController.handle(req, res)
 }))
 
 raceRoute.delete('/:id', resolveController(async(req: Request, res: Response) => {

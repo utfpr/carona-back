@@ -12,15 +12,14 @@ Content-Type: application/json
 }
 
 ###Update
-PUT http://localhost:3333/race/6dd31952-46cf-4e45-9cab-52a66e55d20a
+PUT http://localhost:3333/race/40b44593-ead1-40c9-91fd-2b9937c198df
 Content-Type: application/json
 
 {
-    "originPoint": "oga maguila",
+    "originPoint": "oga1 maguila1",
     "endPoint": "fiorella2",
-    "timeStart": "20:03",
-    "userId": "4118f928-54ba-48f5-a957-65fadaf860c4",
-    "carId": "0a32eb3f-c81e-4658-8450-ed6852f8a833"
+    "timeStart": "2024-04-21T21:20:55.831Z",
+    "seats": 5
 }
 
 ###Delete
