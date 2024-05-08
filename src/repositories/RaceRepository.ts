@@ -2,18 +2,47 @@ import { PrismaClient } from "@prisma/client";
 import { IRaceRepository } from "../interfaces/IRaceRepository";
 import { IRace, IRaceUpdateRequest } from "../interfaces/IRaceInterface";
 import { race } from "../entities/race";
+import { futureRace, listFutureRaces } from "../utils/futureRace";
 
 const prisma = new PrismaClient();
 
 export class RaceRepository implements IRaceRepository{
-    async  findAll(): Promise<IRace[]> {
+    
+    async historic(id: string): Promise<IRace[]> {
+        let result = await prisma.race.findMany({
+            where: {userId: id} 
+        })
+
+        const res = await prisma.passengers.findMany({
+            where: { userId: id}
+        })
+
+        let i = 0;
+
+        while(i < res.length){
+            let race = await prisma.race.findUnique({
+                where: {id: res[i].raceId}
+            })
+
+            if(race) result.push(race)
+
+            i++;
+            }
+
+             return listFutureRaces(result)
+        }
+
+    async findAll(): Promise<IRace[]> {
         const result = await prisma.race.findMany({
             include: {
                 driver: true,
                 passengers: true
             }
         });
-        return result;
+
+        const res = listFutureRaces(result)
+
+        return res;
     }
 
     async findOneRace(id: string): Promise<IRace> {

@@ -36,3 +36,7 @@ export interface IRaceUpdateRequest{
 export interface IRaceDeleteRequest{
   id: string
 }
+
+export interface IHistoricRequest{
+  id: string
+}

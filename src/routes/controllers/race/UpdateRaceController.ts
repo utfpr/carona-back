@@ -11,7 +11,7 @@ export class UpdateRaceController{
         console.log("controller 1")
         const updateRaceService = new UpdateRaceService(this.raceRepo)
         console.log("controller")
-        await updateRaceService.execute({
+        const result = await updateRaceService.execute({
             id,
             originPoint,
             endPoint,
@@ -19,6 +19,6 @@ export class UpdateRaceController{
             seats
         })
 
-        return res.status(201).json()
+        return res.status(201).json(result)
     }
 }
