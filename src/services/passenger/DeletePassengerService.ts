@@ -13,7 +13,7 @@ export class DeletePassengerService{
 
         race.seats++;
 
-        await this.raceRepo.update(race, result.id)
+        await this.raceRepo.update(race, race.id)
 
         await this.passengerRepo.delete(id)
     }
