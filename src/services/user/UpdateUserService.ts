@@ -1,6 +1,8 @@
 import { IUserRepository } from "../../interfaces/IUserRepository";
 import { IUser, IUserUpdateRequest } from "../../interfaces/IUserInterface";
 import {
+  validateConfimPassword,
+  validateConfirmEmail,
   validateEmail,
   validatePassword,
 } from "../../utils/validate";
@@ -14,18 +16,20 @@ export class UpdateUserService {
     name,
     email,
     password,
+    ra,
+    confirmEmail,
+    confirmPassword
   }: IUserUpdateRequest): Promise<IUser> {
     const result = await this.userRepo.findOneUser(id);
 
-    if (email && !validateEmail(email)) {
-      throw new AppError("Nome de usuário inválido. São necessários pelo menos 3 caracteres");
-    }
+    if(!validateEmail(email)) throw new AppError('invalid email or password')
 
-    if (password && !validatePassword(password)) {
-      throw new AppError(
-        "A senha deve possuir pelo menos 5 caracteres"
-      );
-    }
+    if(!validatePassword(password)) throw new AppError('invalid email or password')
+
+    if(confirmEmail && !validateConfirmEmail(email, confirmEmail)) throw new AppError('invalid email or password')
+
+    if(confirmPassword && !validateConfimPassword(password, confirmPassword)) throw new AppError('invalid email or password')
+    
 
 
     const user = new User(
@@ -33,10 +37,12 @@ export class UpdateUserService {
         name: name || result.name,
         email: email || result.email,
         password: password || result.password,
-        haveCar: result.haveCar
+        haveCar: result.haveCar,
+        ra: ra || result.ra
       },
       result.id
     );
+    
 
     const result2 = await this.userRepo.update(user.toJSON(), id);
 

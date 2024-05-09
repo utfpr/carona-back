@@ -11,7 +11,10 @@ export class CreateUserController {
       const {
         name,
         email,
-        password
+        password,
+        ra,
+        confirmEmail,
+        confirmPassword
       } = req.body;
       console.log("1")
       const createUserService = new CreateUserService(
@@ -21,7 +24,10 @@ export class CreateUserController {
       const user = await createUserService.execute({
         name,
         email,
-        password
+        password,
+        ra,
+        confirmEmail,
+        confirmPassword
       });
       console.log("3")
       return res.status(201).json(user);

@@ -6,13 +6,29 @@ import { AppError } from "../errors/AppError";
 const prisma = new PrismaClient();
 
 export class UserRepository implements IUserRepository{
+    async findByRa(ra: string): Promise<IUser> {
+        const result = await prisma.user.findUnique({
+            where: { ra },
+            include: {
+                car: true
+            }
+        })
+
+        if(!result) throw new AppError("User not found")
+
+        return result
+    }
+
     async findByEmail(email: string): Promise<IUser> {
         let result = await prisma.user.findUnique({
             where: { email },
+            include: { 
+                car: true
+            }
           });
 
           if(!result){
-            throw new AppError("batata")
+            throw new AppError("User not found")
           }
 
           return result;

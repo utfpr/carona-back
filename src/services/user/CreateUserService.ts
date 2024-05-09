@@ -1,4 +1,4 @@
-import { validateConfimPassword, validateConfirmEmail, validateEmail, validatePhoneNumber} from "../../utils/validate";
+import { validateConfimPassword, validateConfirmEmail, validateEmail, validatePassword} from "../../utils/validate";
 import { User } from "../../entities/user";
 import { IUserRepository } from "../../interfaces/IUserRepository";
 import { IUser, IUserCreateRequest } from "../../interfaces/IUserInterface";
@@ -10,7 +10,7 @@ export class CreateUserService{
         private userRepo: IUserRepository
     ){}
     async execute({
-        name, email, password
+        name, email, password, ra, confirmEmail, confirmPassword
     }: IUserCreateRequest): Promise<IUser>
 {
 
@@ -18,10 +18,19 @@ export class CreateUserService{
         name,
         email,
         password,
-        haveCar: false
+        haveCar: false,
+        ra
     })
 
     let userdata = user.toJSON();
+
+    if(!validateEmail(email)) throw new AppError('invalid email or password')
+
+    if(!validatePassword(password)) throw new AppError('invalid email or password')
+
+    if(confirmEmail && !validateConfirmEmail(email, confirmEmail)) throw new AppError('invalid email or password')
+
+    if(confirmPassword && !validateConfimPassword(password, confirmPassword)) throw new AppError('invalid email or password')
 
     await this.userRepo.insert(userdata);
 

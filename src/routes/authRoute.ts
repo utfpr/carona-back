@@ -9,6 +9,7 @@ import { JWTRepository } from "../repositories/JWTRepository";
 import { UserRepository } from "../repositories/UserRepository";
 import { AuthenticateUserController } from "./controllers/user/AuthenticateUserController";
 import { CryptoRepository } from "../repositories/CryptoRepository";
+import { AuthenticateUserByRaController } from "./controllers/user/AuthenticateUserByRaController";
 
 export const userAuthenticateRoute = Router();
 
@@ -16,9 +17,13 @@ const cryptoRepo: ICryptoRepository = new CryptoRepository()
 const userRepo: IUserRepository = new UserRepository();
 const jwtRepo: IJWTRepository = new JWTRepository();
 const hashRepo: IHashRepository = new HashRepository();
-
 const authenticateUserController = new AuthenticateUserController(userRepo, jwtRepo, hashRepo);
+const authenticateUserByRaController = new AuthenticateUserByRaController(userRepo, jwtRepo, hashRepo)
 
 userAuthenticateRoute.post("/", resolveController(async (req: Request, res: Response) => {
     return await authenticateUserController.handle(req, res);
+}))
+
+userAuthenticateRoute.post("/ra/", resolveController(async (req: Request, res: Response) => {
+    return await authenticateUserByRaController.handle(req, res);
 }))
