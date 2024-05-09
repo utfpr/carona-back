@@ -8,14 +8,15 @@ export class UpdateCarController{
     constructor(private carRepo: ICarRepository){}
     async handle(req: Request, res: Response): Promise<Response>{
         const { id } = req.params;
-        const {plate, description, userId }: ICar = req.body;
+        const {plate, description, userId, mainCar }: ICar = req.body;
 
         const updateCarService = new UpdateCarService(this.carRepo)
         await updateCarService.execute({
             id,
             plate,
             description,
-            userId
+            userId,
+            mainCar
         })
 
         return res.status(201).json()

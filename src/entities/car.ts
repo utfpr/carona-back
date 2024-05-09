@@ -6,6 +6,7 @@ export class Car{
     plate: ICar['plate']
     description: ICar['description']
     userId: ICar['userId']
+    mainCar: ICar['mainCar']
     createdAt: ICar['createdAt']
     updatedAt: ICar['updatedAt']
 
@@ -14,6 +15,7 @@ export class Car{
         this.plate = props.plate;
         this.description = props.description;
         this.userId = props.userId;
+        this.mainCar = props.mainCar || false
         this.createdAt = props.createdAt || new Date();
         this.updatedAt = new Date()
     }
@@ -24,6 +26,7 @@ export class Car{
             plate: this.plate,
             description: this.description,
             userId: this.userId,
+            mainCar: this.mainCar,
             createdAt: this.createdAt,
             updatedAt: this.updatedAt
         }

@@ -10,17 +10,18 @@ export class CreateCarService{
     constructor(private carRepo: ICarRepository, private userRepo: IUserRepository){}
     async execute({plate, description, userId}:ICarCreateRequest):Promise<IUser>{
         
-        const car = new Car({plate, description, userId});
-        
-        await this.carRepo.insert(car.toJSON())
+        const car = new Car({plate, description, userId, mainCar: false});
 
         let user = await this.userRepo.findOneUser(userId)
         console.log('cc1')
         if(user.haveCar === false){
-            console.log("cc2")
+            
             user.haveCar = true;
+            car.mainCar = true;
             await this.userRepo.update(user, userId)
         } 
+
+        await this.carRepo.insert(car.toJSON())
 
         return user
     }

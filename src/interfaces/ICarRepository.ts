@@ -7,4 +7,5 @@ export interface ICarRepository{
     update(props:ICar, id:string): Promise<ICar>
     delete(id:string): Promise<void>
     findUserCars(userId: string): Promise<ICar[]>
+    findMainCar(userId: string): Promise<ICar>
 }

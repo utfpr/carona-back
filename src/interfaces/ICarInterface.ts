@@ -3,6 +3,7 @@ export interface ICar{
     plate: string
     description: string
     userId: string
+    mainCar: boolean
     createdAt?: Date
     updatedAt?: Date
 }
@@ -26,6 +27,7 @@ export interface ICarUpdateRequest{
     plate: string
     description: string
     userId: string
+    mainCar: boolean
     createdAt?: Date
     updatedAt?: Date
 }

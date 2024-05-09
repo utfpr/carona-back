@@ -31,9 +31,11 @@ model car{
   description String @db.VarChar(255)
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+  mainCar Boolean @db.Boolean
   owner user @relation(fields: [userId], references: [id]) 
   userId String @db.Uuid
   race race[]
+  
 }
 
 model race{
