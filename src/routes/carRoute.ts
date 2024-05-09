@@ -8,15 +8,18 @@ import { DeleteCarController } from "./controllers/car/DeleteCarController";
 import { resolveController } from "../adapters/resolverController";
 import { ICar } from "../interfaces/ICarInterface";
 import { ICarRepository } from "../interfaces/ICarRepository";
+import { IUserRepository } from "../interfaces/IUserRepository";
+import { UserRepository } from "../repositories/UserRepository";
 
 export const carRoute = Router();
 
 const carRepo: ICarRepository = new CarRepository()
-const createCarController = new CreateCarController(carRepo)
+const userRepo: IUserRepository = new UserRepository()
+const createCarController = new CreateCarController(carRepo, userRepo)
 const getCarsController = new GetCarsController(carRepo)
 const listCarsController = new ListCarsController(carRepo)
 const updateCarController = new UpdateCarController(carRepo)
-const deleteCarController = new DeleteCarController(carRepo)
+const deleteCarController = new DeleteCarController(carRepo, userRepo)
 
 carRoute.post('/', resolveController(async(req: Request, res: Response) => {
     return await createCarController.handle(req, res)

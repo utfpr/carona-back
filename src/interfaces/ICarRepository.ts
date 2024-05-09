@@ -6,4 +6,5 @@ export interface ICarRepository{
     insert(props: ICar): Promise<ICar>
     update(props:ICar, id:string): Promise<ICar>
     delete(id:string): Promise<void>
+    findUserCars(userId: string): Promise<ICar[]>
 }

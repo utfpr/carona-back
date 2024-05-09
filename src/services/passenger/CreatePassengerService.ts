@@ -7,7 +7,9 @@ import { IRaceRepository } from "../../interfaces/IRaceRepository";
 export class CreatePassengerService{
     constructor(private passengerRepo: IPassengerRepository, private raceRepo: IRaceRepository){}
     async execute({userId, raceId}: IPassengerCreateRequest): Promise<IPassenger>{
+        
         const passenger = new Passenger({ userId, raceId})
+        
         let race = await this.raceRepo.findOneRace(raceId)
 
         

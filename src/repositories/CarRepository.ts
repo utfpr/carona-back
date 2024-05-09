@@ -6,6 +6,14 @@ import { AppError } from "../errors/AppError";
 const prisma = new PrismaClient();
 
 export class CarRepository implements ICarRepository{
+    async findUserCars(userId: string): Promise<ICar[]> {
+        const result = await prisma.car.findMany({
+            where: {userId}
+        })
+
+        return result
+    }
+
     async findOneCar(id: string): Promise<ICar> {
         const result = await prisma.car.findUnique({
             where: {id}

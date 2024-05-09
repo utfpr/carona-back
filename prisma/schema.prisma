@@ -18,6 +18,7 @@ model user{
   password String @db.VarChar(255)
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+  haveCar Boolean @db.Boolean
   car car[]
   race race[]
   passengers passengers[]

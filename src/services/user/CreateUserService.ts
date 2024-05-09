@@ -17,7 +17,8 @@ export class CreateUserService{
     const user = new User({
         name,
         email,
-        password
+        password,
+        haveCar: false
     })
 
     let userdata = user.toJSON();

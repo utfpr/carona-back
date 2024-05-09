@@ -8,6 +8,7 @@ export class User{
     password: IUser['password']
     createdAt: IUser['createdAt']
     updatedAt: IUser['updatedAt']
+    haveCar: IUser['haveCar']
 
     constructor(props: Omit<IUser, 'id'>, id?:string){
         this.id =  id || createUUID();
@@ -15,7 +16,8 @@ export class User{
         this.email = props.email;
         this.password = props.password;
         this.createdAt = props.createdAt || new Date();
-        this.updatedAt = new Date()
+        this.updatedAt = new Date();
+        this.haveCar =  props.haveCar || false
     }
     
     toJSON(): IUser{
@@ -24,6 +26,7 @@ export class User{
             name: this.name,
             email: this.email,
             password: this.password,
+            haveCar: this.haveCar,
             createdAt: this.createdAt,
             updatedAt: this.updatedAt
         }

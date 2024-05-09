@@ -3,6 +3,7 @@ export interface IUser{
     name: string
     email: string
     password: string
+    haveCar: boolean
     createdAt?: Date
     updatedAt?: Date
 }

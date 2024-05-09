@@ -1,5 +1,5 @@
 ###Create
-POST http://localhost:3333/passenger/user/6e68346c-7f5f-4ba3-8b98-8f79bd2e8716/race/40b44593-ead1-40c9-91fd-2b9937c198df
+POST http://localhost:3333/passenger/user/6e68346c-7f5f-4ba3-8b98-8f79bd2e8716/race/7e16316b-bfd1-4787-8369-c515c8078b3e
 
 ###Delete
-DELETE http://localhost:3333/"id da tabela passenger"
+DELETE http://localhost:3333/passenger/1baa58dc-9155-43d4-8eba-9e611fb0330f

@@ -18,13 +18,23 @@ export class UserRepository implements IUserRepository{
           return result;
     }
     async findAll(): Promise<IUser[]> {
-        const result = await prisma.user.findMany()
+        const result = await prisma.user.findMany({
+            include: {
+                car: true
+            }
+        })
         return result;
     }
     
     async insert(props: IUser): Promise<IUser> {
+
+        props.haveCar = false;
+
         const result = await prisma.user.create({
-            data: props
+            data: props,
+            include:{
+                car: true
+            }
         })
 
         return result
@@ -32,7 +42,10 @@ export class UserRepository implements IUserRepository{
 
     async findOneUser(id: string): Promise<IUser> {
         const result = await prisma.user.findUnique({
-            where: { id }
+            where: { id },
+            include:{
+                car: true
+            }
         })
 
         if(!result) throw Error('User not fund')
@@ -42,7 +55,10 @@ export class UserRepository implements IUserRepository{
     async update(props: IUser, id: string): Promise<IUser> {
         const result = await prisma.user.update({
             where: { id },
-            data: props
+            data: {name: props.name, email: props.email, haveCar: props.haveCar},
+            include: {
+                car: true
+            }
         })
 
         return result
