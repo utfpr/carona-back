@@ -18,10 +18,13 @@ export class CreateCarService{
             
             user.haveCar = true;
             car.mainCar = true;
-            await this.userRepo.update(user, userId)
-        } 
+            await this.carRepo.insert(car.toJSON())
+            user = await this.userRepo.update(user, userId)
+        } else{
 
         await this.carRepo.insert(car.toJSON())
+
+        }
 
         return user
     }
