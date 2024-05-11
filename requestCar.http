@@ -3,9 +3,9 @@ POST http://localhost:3333/car
 Content-Type: application/json
 
 {
-    "plate": "hoo11112",
-    "description": "claysono2@em",
-    "userId": "cef71068-3990-4885-a4ab-fcb2e0d860f3"
+    "plate": "Liz3107",
+    "description": "2127",
+    "userId": "f15a866c-f46f-4d4e-a317-67aacf084e51"
 }
 
 ###Update
@@ -27,4 +27,4 @@ DELETE http://localhost:3333/car/f7806a02-bcac-4407-8111-3654384835bc
 GET http://localhost:3333/car/
 
 ###Get all
-GET http://localhost:3333/car/user/67f3af96-d476-43b4-a455-11850f36080e
+GET http://localhost:3333/car/user/27ca9ff8-8e1a-4228-a67b-976576861694

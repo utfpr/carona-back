@@ -16,7 +16,6 @@ export class AuthenticateUserService {
         const user = await this.userRepo.findByEmail(email);
         if(user) {
             console.log(user.password, "===", password)
-            //const res = await this.hashRepo.uncryptographie(password, user.password)
             
             if(user.password === password) {
                 const token = this.jwtRepo.generate({ email: user.email!, id: user.id })

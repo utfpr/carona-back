@@ -3,10 +3,10 @@ Content-Type: application/json
 
 {
     "name": "Daniel",
-    "email": "willwallacetr@gmail.com",
+    "email": "williamwtr@outlook.com",
     "password": "NarutoStorm5!",
-    "ra": "a0000002",
-    "confirmEmail": "willwallaceter@gmail.com",
+    "ra": "a0000003",
+    "confirmEmail": "williamwtr@outlook.com",
     "confirmPassword": "NarutoStorm5!"
 }
 

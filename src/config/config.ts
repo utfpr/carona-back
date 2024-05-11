@@ -31,7 +31,7 @@ export default {
     preflightContinue: false,
   },
   notification: {
-    email: process.env.EMAIL || 'noreply.caronasolidaria.utfpr@gmail.com',
-    password: process.env.EMAIL_APP_PASSWORD || 'xfdg vqho qcmd kdoq'
+    email: process.env.EMAIL || 'example@email.domain',
+    password: process.env.EMAIL_APP_PASSWORD || 'emailpassword'
   }
 }
