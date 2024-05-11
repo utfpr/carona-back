@@ -5,6 +5,13 @@ import { AppError } from "../errors/AppError";
 
 const prisma = new PrismaClient();
 export class PassengerRepository implements IPassengerRepository{
+    async listRacePassengers(raceId: string): Promise<IPassenger[]> {
+        const result = await prisma.passengers.findMany({
+            where: {raceId}
+        })
+
+        return result
+    }
     
     async insert(props: IPassenger): Promise<IPassenger> {
         console.log("3")

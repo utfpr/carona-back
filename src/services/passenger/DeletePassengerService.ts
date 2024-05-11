@@ -2,9 +2,11 @@ import { IPassengerRepository } from "../../interfaces/IPassengerRepository";
 import { IPassengerDeleteRequest } from "../../interfaces/IPassengersInterface";
 import { IRace } from "../../interfaces/IRaceInterface";
 import { IRaceRepository } from "../../interfaces/IRaceRepository";
+import { IUserRepository } from "../../interfaces/IUserRepository";
+import { PassengerExitNotificationService } from "../notification/PassengerExitNotificationService";
 
 export class DeletePassengerService{
-    constructor(private passengerRepo: IPassengerRepository, private raceRepo: IRaceRepository){}
+    constructor(private passengerRepo: IPassengerRepository, private raceRepo: IRaceRepository, private userRepo: IUserRepository){}
 
     async execute({id}: IPassengerDeleteRequest): Promise<void>{
 
@@ -16,5 +18,9 @@ export class DeletePassengerService{
         await this.raceRepo.update(race, race.id)
 
         await this.passengerRepo.delete(id)
+
+        const notification = new PassengerExitNotificationService(this.passengerRepo, this.userRepo, this.raceRepo);
+        
+        await notification.execute(result.id)
     }
 }

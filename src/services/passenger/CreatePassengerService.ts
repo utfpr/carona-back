@@ -3,9 +3,11 @@ import { AppError } from "../../errors/AppError";
 import { IPassengerRepository } from "../../interfaces/IPassengerRepository";
 import { IPassenger, IPassengerCreateRequest } from "../../interfaces/IPassengersInterface";
 import { IRaceRepository } from "../../interfaces/IRaceRepository";
+import { IUserRepository } from "../../interfaces/IUserRepository";
+import { PassengerEntryNotificationService } from "../notification/PassengerEntryNotificationService";
 
 export class CreatePassengerService{
-    constructor(private passengerRepo: IPassengerRepository, private raceRepo: IRaceRepository){}
+    constructor(private passengerRepo: IPassengerRepository, private raceRepo: IRaceRepository, private userRepo: IUserRepository){}
     async execute({userId, raceId}: IPassengerCreateRequest): Promise<IPassenger>{
         
         const passenger = new Passenger({ userId, raceId})
@@ -21,7 +23,11 @@ export class CreatePassengerService{
         race.seats--;
         
         await this.raceRepo.update(race, race.id)
+
+        const notification = new PassengerEntryNotificationService(this.userRepo, this.passengerRepo, this.raceRepo);
         
+        await notification.execute(passenger.id, passenger.userId)
+    
         return result
 
     }

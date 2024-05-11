@@ -2,9 +2,12 @@ POST http://localhost:3333/user
 Content-Type: application/json
 
 {
-    "name": "ricardo",
-    "email": "silvaaa",
-    "password": "calma"
+    "name": "Daniel",
+    "email": "willwallacetr@gmail.com",
+    "password": "NarutoStorm5!",
+    "ra": "a0000002",
+    "confirmEmail": "willwallaceter@gmail.com",
+    "confirmPassword": "NarutoStorm5!"
 }
 
 ###Update
@@ -32,6 +35,15 @@ POST http://localhost:3333/auth
 Content-Type: application/json
 
 {
-    "email": "bazinha2",
-    "password": "calma"
+    "email": "ricardo@silva.com.br",
+    "password": "NarutoStorm5!"
+}
+
+###Ra auth
+POST http://localhost:3333/auth/ra
+Content-Type: application/json
+
+{
+    "ra": "a2459808",
+    "password": "NarutoStorm5!"
 }

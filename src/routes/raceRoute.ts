@@ -8,15 +8,21 @@ import { DeleteRaceController } from "./controllers/race/DeleteRaceController";
 import { resolveController } from "../adapters/resolverController";
 import { IRaceRepository } from "../interfaces/IRaceRepository";
 import { HistoricRaceController } from "./controllers/race/HistoricRaceController";
+import { IUserRepository } from "../interfaces/IUserRepository";
+import { UserRepository } from "../repositories/UserRepository";
+import { IPassengerRepository } from "../interfaces/IPassengerRepository";
+import { PassengerRepository } from "../repositories/PassengerRepository";
 
 export const raceRoute = Router();
 
 const raceRepo: IRaceRepository = new RaceRepository()
+const userRepo: IUserRepository = new UserRepository()
+const passengerRepo: IPassengerRepository = new PassengerRepository()
 const createRaceController = new CreateRaceController(raceRepo)
 const getRaceController = new GetRaceController(raceRepo)
 const listRaceController = new ListRacesController(raceRepo)
 const updateRaceController = new UpdateRaceController(raceRepo)
-const deleteRaceController = new DeleteRaceController(raceRepo)
+const deleteRaceController = new DeleteRaceController(raceRepo, userRepo, passengerRepo)
 const historicRaceController = new HistoricRaceController(raceRepo)
 
 raceRoute.post('/', resolveController(async(req: Request, res: Response) => {

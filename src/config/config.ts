@@ -29,5 +29,9 @@ export default {
     methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
     origin: '*',
     preflightContinue: false,
+  },
+  notification: {
+    email: process.env.EMAIL || 'noreply.caronasolidaria.utfpr@gmail.com',
+    password: process.env.EMAIL_APP_PASSWORD || 'xfdg vqho qcmd kdoq'
   }
 }
