@@ -18,6 +18,23 @@ export class CreatePassengerService{
         if(race.seats <= 0){
             throw new AppError("Não há vagas")
         }
+
+        const user = await this.userRepo.findOneUser(userId)
+
+        const userPassengers = await this.passengerRepo.listUserRaces(userId)
+
+        if(userPassengers.length !== 0){
+            let i = 0;
+            while(i<userPassengers.length){
+                const travel = await this.raceRepo.findOneRace(userPassengers[i].raceId)
+                if(travel.timeStart === race.timeStart){
+                    throw new AppError('Você já está em uma corrida nesse horário.')
+                } else {
+                    i++
+                }
+            }
+        }
+
         const result = await this.passengerRepo.insert(passenger.toJson())
         
         race.seats--;

@@ -2,9 +2,18 @@ import { PrismaClient } from "@prisma/client";
 import { IPassengerRepository } from "../interfaces/IPassengerRepository";
 import { IPassenger, IPassengerCreateRequest } from "../interfaces/IPassengersInterface";
 import { AppError } from "../errors/AppError";
+import { IRace } from "../interfaces/IRaceInterface";
 
 const prisma = new PrismaClient();
 export class PassengerRepository implements IPassengerRepository{
+    async listUserRaces(userId: string): Promise<IPassenger[]> {
+        const result = await prisma.passengers.findMany({
+            where: {userId}
+        })
+
+        return result
+    }
+
     async listRacePassengers(raceId: string): Promise<IPassenger[]> {
         const result = await prisma.passengers.findMany({
             where: {raceId}
