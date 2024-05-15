@@ -11,11 +11,11 @@ export class DeleteRaceService{
     async execute({id}: IRaceDeleteRequest):Promise<void>{
         
         await this.raceRepo.findOneRace(id)
-        
-        await this.raceRepo.delete(id)
 
         const notification = new DeleteRaceNotificationService(this.raceRepo, this.userRepo, this.passengerRepo);
         
         await notification.execute(id)
+
+        await this.raceRepo.delete(id)
     }
 }
