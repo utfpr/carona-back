@@ -42,7 +42,7 @@ export class PassengerRepository implements IPassengerRepository{
         const result = await prisma.passengers.findUnique({
             where: { id }
         })
-
+        console.log(result)
             if(!result){
                 throw new AppError("Passenger not found")
             }

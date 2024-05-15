@@ -2,4 +2,4 @@
 POST http://localhost:3333/passenger/user/7b2d6950-3b3b-466b-b1d4-aea4e469ac2d/race/bd3ec96c-c60f-445a-9aef-0b4503e48ff4
 
 ###Delete
-DELETE http://localhost:3333/passenger/1baa58dc-9155-43d4-8eba-9e611fb0330f
+DELETE http://localhost:3333/passenger/6debd285-59c6-445b-a6d0-7bd511923990

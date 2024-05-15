@@ -17,10 +17,10 @@ export class DeletePassengerService{
 
         await this.raceRepo.update(race, race.id)
 
-        await this.passengerRepo.delete(id)
-
         const notification = new PassengerExitNotificationService(this.passengerRepo, this.userRepo, this.raceRepo);
         
         await notification.execute(result.id)
+
+        await this.passengerRepo.delete(id)
     }
 }
