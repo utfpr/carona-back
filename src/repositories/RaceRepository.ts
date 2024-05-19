@@ -30,7 +30,7 @@ export class RaceRepository implements IRaceRepository{
             i++;
             }
 
-             return listFutureRaces(result)
+             return result
         }
 
     async findAll(): Promise<IRace[]> {
