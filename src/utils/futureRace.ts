@@ -31,3 +31,18 @@ export function listFutureRaces(races: race[]){
 
     return list
 }
+
+export function ordenate(list: race[]){
+    list = list.sort(function(a, b){
+        if(a.timeStart < b.timeStart){
+            return -1;
+        }
+        if(a.timeStart > b.timeStart){
+            return 1;
+        }
+
+        return 0
+    })
+
+    return list
+}

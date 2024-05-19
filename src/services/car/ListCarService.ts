@@ -3,8 +3,8 @@ import { ICar } from "../../interfaces/ICarInterface";
 
 export class ListCarService{
     constructor(private carRepo: ICarRepository){}
-    async execute(userId: string): Promise<ICar[]>{
-        const cars = await this.carRepo.findAll(userId)
+    async execute(): Promise<ICar[]>{
+        const cars = await this.carRepo.findAll()
         return cars;
     }
 }

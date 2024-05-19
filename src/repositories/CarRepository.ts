@@ -33,9 +33,10 @@ export class CarRepository implements ICarRepository{
         
         return result
     }
-    async findAll(userId: string): Promise<ICar[]> {
+
+    async findAll(): Promise<ICar[]> {
         const result = await prisma.car.findMany({
-            where: {userId: userId, active: true}
+            where: {active: true}
         })
         return result;
     }
@@ -71,10 +72,11 @@ export class CarRepository implements ICarRepository{
 
         if(races.length > 0) throw new AppError('That car cant be deleted as its linked to a race. Delete the races that contain this car so that you can delete it')
 
-        await prisma.car.update({
+        const result1 = await prisma.car.update({
             where: { id },
             data: {active: false}
         })
+
     }
     
 }

@@ -35,7 +35,7 @@ export class PassengerRepository implements IPassengerRepository{
             where: { id }
         })
 
-        if(!result || result.active === false) throw new AppError('Passenger not found')
+        if(!result) throw new AppError('Passenger not found')
 
         await prisma.passengers.update({
             where: { id },
