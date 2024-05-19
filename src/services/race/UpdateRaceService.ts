@@ -19,7 +19,8 @@ export class UpdateRaceService{
             timeStart: timeStart || result.timeStart,
             userId: result.userId,
             carId: result.carId,
-            seats:  seats || result.seats 
+            seats:  seats || result.seats,
+            active: true
         }, result.id);
 
         console.log("q")

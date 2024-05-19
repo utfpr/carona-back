@@ -5,6 +5,7 @@ export interface IUser{
     password: string
     haveCar: boolean
     ra: string
+    active: boolean
     createdAt?: Date
     updatedAt?: Date
     confirmEmail?: string,

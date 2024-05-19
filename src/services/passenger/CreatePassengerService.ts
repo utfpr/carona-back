@@ -10,7 +10,7 @@ export class CreatePassengerService{
     constructor(private passengerRepo: IPassengerRepository, private raceRepo: IRaceRepository, private userRepo: IUserRepository){}
     async execute({userId, raceId}: IPassengerCreateRequest): Promise<IPassenger>{
         
-        const passenger = new Passenger({ userId, raceId})
+        const passenger = new Passenger({ userId, raceId, active: true})
         
         let race = await this.raceRepo.findOneRace(raceId)
 

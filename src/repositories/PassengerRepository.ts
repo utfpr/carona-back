@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 export class PassengerRepository implements IPassengerRepository{
     async listUserRaces(userId: string): Promise<IPassenger[]> {
         const result = await prisma.passengers.findMany({
-            where: {userId}
+            where: {userId, active: true}
         })
 
         return result
@@ -16,31 +16,36 @@ export class PassengerRepository implements IPassengerRepository{
 
     async listRacePassengers(raceId: string): Promise<IPassenger[]> {
         const result = await prisma.passengers.findMany({
-            where: {raceId}
+            where: {raceId, active: true}
         })
 
         return result
     }
     
     async insert(props: IPassenger): Promise<IPassenger> {
-        console.log("3")
         const result = await prisma.passengers.create({
-            data: { userId: props.userId, raceId: props.raceId, id: props.id} 
+            data: { userId: props.userId, raceId: props.raceId, id: props.id, active: true} 
         })
-        console.log("4")
-        console.log(result)
+       
         return result
     }
 
     async delete(id: string): Promise<void> {
-        await prisma.passengers.delete({
+        const result = await prisma.passengers.findUnique({
             where: { id }
+        })
+
+        if(!result || result.active === false) throw new AppError('Passenger not found')
+
+        await prisma.passengers.update({
+            where: { id },
+            data: { active: false}
         })
     }
 
     async get(id:string): Promise<IPassenger>{
         const result = await prisma.passengers.findUnique({
-            where: { id }
+            where: { id, active: true }
         })
         console.log(result)
             if(!result){

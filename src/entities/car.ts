@@ -9,6 +9,7 @@ export class Car{
     mainCar: ICar['mainCar']
     createdAt: ICar['createdAt']
     updatedAt: ICar['updatedAt']
+    active: ICar['active']
 
     constructor(props: Omit<ICar, 'id'>, id?:string){
         this.id = id || createUUID();
@@ -16,6 +17,7 @@ export class Car{
         this.description = props.description;
         this.userId = props.userId;
         this.mainCar = props.mainCar || false
+        this.active = true
         this.createdAt = props.createdAt || new Date();
         this.updatedAt = new Date()
     }
@@ -27,6 +29,7 @@ export class Car{
             description: this.description,
             userId: this.userId,
             mainCar: this.mainCar,
+            active: this.active,
             createdAt: this.createdAt,
             updatedAt: this.updatedAt
         }

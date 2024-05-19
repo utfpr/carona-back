@@ -18,7 +18,7 @@ export class CarRepository implements ICarRepository{
 
     async findUserCars(userId: string): Promise<ICar[]> {
         const result = await prisma.car.findMany({
-            where: {userId}
+            where: {userId, active: true}
         })
 
         return result
@@ -29,13 +29,13 @@ export class CarRepository implements ICarRepository{
             where: {id}
         });
 
-        if(!result) throw new AppError("car not found");
+        if(!result || result.active === false) throw new AppError("car not found");
         
         return result
     }
     async findAll(userId: string): Promise<ICar[]> {
         const result = await prisma.car.findMany({
-            where: {userId: userId}
+            where: {userId: userId, active: true}
         })
         return result;
     }
@@ -58,8 +58,15 @@ export class CarRepository implements ICarRepository{
     }
 
     async delete(id: string): Promise<void> {
-        await prisma.car.delete({
+        const result = await prisma.car.findUnique({
             where: { id }
+        })
+
+        if(!result) throw new AppError('car not found')
+
+        await prisma.car.update({
+            where: { id },
+            data: {active: false}
         })
     }
     

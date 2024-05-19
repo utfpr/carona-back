@@ -38,7 +38,8 @@ export class UpdateUserService {
         email: email || result.email,
         password: password || result.password,
         haveCar: result.haveCar,
-        ra: ra || result.ra
+        ra: ra || result.ra,
+        active: true
       },
       result.id
     );

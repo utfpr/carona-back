@@ -4,6 +4,7 @@ export interface ICar{
     description: string
     userId: string
     mainCar: boolean
+    active: boolean
     createdAt?: Date
     updatedAt?: Date
 }

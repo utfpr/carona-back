@@ -3,6 +3,7 @@ import { IRaceRepository } from "../interfaces/IRaceRepository";
 import { IRace, IRaceUpdateRequest } from "../interfaces/IRaceInterface";
 import { race } from "../entities/race";
 import { futureRace, listFutureRaces } from "../utils/futureRace";
+import { AppError } from "../errors/AppError";
 
 const prisma = new PrismaClient();
 
@@ -34,6 +35,7 @@ export class RaceRepository implements IRaceRepository{
 
     async findAll(): Promise<IRace[]> {
         const result = await prisma.race.findMany({
+            where: { active: true}, 
             include: {
                 driver: true,
                 passengers: true
@@ -77,9 +79,20 @@ export class RaceRepository implements IRaceRepository{
         return result
     }
     async delete(id: string): Promise<void> {
-        console.log("repo")
-       await prisma.race.delete({
+       const result = await prisma.race.findUnique({
         where: { id }
+       })
+
+       if(!result || result.active === false) throw new AppError('Race not found')
+
+       await prisma.passengers.updateMany({
+        where: {raceId: id},
+        data: {active: false}
+       })
+
+       await prisma.race.update({
+        where: { id },
+        data: { active: false}
        })
     }
     

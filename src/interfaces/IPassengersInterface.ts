@@ -2,6 +2,7 @@ export interface IPassenger{
     id: string;
     userId: string;
     raceId: string;
+    active: boolean;
     createdAt?: Date;
     updatedAt?: Date;
 }

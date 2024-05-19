@@ -6,6 +6,7 @@ export interface IRace{
   userId:string
   carId: string
   seats: number
+  active: boolean
   createdAt?: Date
   updatedAt?: Date
 }

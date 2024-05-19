@@ -19,7 +19,8 @@ export class CreateRaceService{
         timeStart,
         userId,
         carId,
-        seats
+        seats,
+        active: true
         });
 
         await this.raceRepo.insert(Race.toJSON())

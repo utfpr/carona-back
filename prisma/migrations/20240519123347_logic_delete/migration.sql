@@ -8,6 +8,7 @@ CREATE TABLE "user" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "haveCar" BOOLEAN NOT NULL,
+    "active" BOOLEAN NOT NULL,
 
     CONSTRAINT "user_pkey" PRIMARY KEY ("id")
 );
@@ -19,7 +20,9 @@ CREATE TABLE "car" (
     "description" VARCHAR(255) NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "mainCar" BOOLEAN NOT NULL,
     "userId" UUID NOT NULL,
+    "active" BOOLEAN NOT NULL,
 
     CONSTRAINT "car_pkey" PRIMARY KEY ("id")
 );
@@ -35,6 +38,7 @@ CREATE TABLE "race" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "seats" INTEGER NOT NULL,
+    "active" BOOLEAN NOT NULL,
 
     CONSTRAINT "race_pkey" PRIMARY KEY ("id")
 );
@@ -44,6 +48,7 @@ CREATE TABLE "passengers" (
     "id" UUID NOT NULL,
     "userId" UUID NOT NULL,
     "raceId" UUID NOT NULL,
+    "active" BOOLEAN NOT NULL,
 
     CONSTRAINT "passengers_pkey" PRIMARY KEY ("id")
 );

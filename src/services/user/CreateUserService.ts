@@ -19,7 +19,8 @@ export class CreateUserService{
         email,
         password,
         haveCar: false,
-        ra
+        ra,
+        active: true
     })
 
     let userdata = user.toJSON();

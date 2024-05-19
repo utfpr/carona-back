@@ -22,7 +22,8 @@ export class UpdateCarService{
             plate: plate || result.plate,
             description: description || result.description,
             userId: result.userId,
-            mainCar: mainCar || result.mainCar
+            mainCar: mainCar || result.mainCar,
+            active: true
         }, result.id);
 
         await this.carRepo.update(cars.toJSON(), id)

@@ -10,6 +10,7 @@ export class race{
   userId: IRace['userId']
   carId: IRace['carId']
   seats: IRace['seats']
+  active: IRace['active']
   createdAt: IRace['createdAt']
   updatedAt: IRace['updatedAt']
 
@@ -21,6 +22,7 @@ export class race{
     this.userId = props.userId;
     this.carId = props.carId;
     this.seats = props.seats;
+    this.active = true;
     this.createdAt = props.createdAt || new Date();
     this.updatedAt = new Date()
   }
@@ -34,6 +36,7 @@ export class race{
         seats: this.seats,
         userId: this.userId,
         carId: this.carId,
+        active: this.active,
         createdAt: this.createdAt,
         updatedAt: this.updatedAt
     }

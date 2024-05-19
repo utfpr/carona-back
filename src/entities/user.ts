@@ -8,6 +8,7 @@ export class User{
     email: IUser['email']
     password: IUser['password']
     createdAt: IUser['createdAt']
+    active: IUser['active']
     updatedAt: IUser['updatedAt']
     haveCar: IUser['haveCar']
 
@@ -17,6 +18,7 @@ export class User{
         this.email = props.email;
         this.password = props.password;
         this.ra = props.ra;
+        this.active = true
         this.createdAt = props.createdAt || new Date();
         this.updatedAt = new Date();
         this.haveCar =  props.haveCar || false
@@ -30,6 +32,7 @@ export class User{
             password: this.password,
             haveCar: this.haveCar,
             ra: this.ra,
+            active: this.active,
             createdAt: this.createdAt,
             updatedAt: this.updatedAt
         }
