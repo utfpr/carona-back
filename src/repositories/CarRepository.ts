@@ -62,7 +62,14 @@ export class CarRepository implements ICarRepository{
             where: { id }
         })
 
+        const races = await prisma.race.findMany({
+            where: {carId: id}
+        })
+        
+
         if(!result) throw new AppError('car not found')
+
+        if(races.length > 0) throw new AppError('That car cant be deleted as its linked to a race. Delete the races that contain this car so that you can delete it')
 
         await prisma.car.update({
             where: { id },
