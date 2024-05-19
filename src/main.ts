@@ -26,6 +26,8 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     res.status(500).json({
         message: `Internal Server Error - ${err.message}`
     })
+
+    next()
 })
 
 //executa o backend na porta mencionada e após, executa a função callback
