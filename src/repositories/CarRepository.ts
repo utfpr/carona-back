@@ -34,9 +34,9 @@ export class CarRepository implements ICarRepository{
         return result
     }
 
-    async findAll(): Promise<ICar[]> {
+    async findAll(userId: string): Promise<ICar[]> {
         const result = await prisma.car.findMany({
-            where: {active: true}
+            where: {userId, active: true}
         })
         return result;
     }

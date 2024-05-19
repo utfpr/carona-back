@@ -29,7 +29,7 @@ carRoute.get('/:id', resolveController(async(req: Request, res: Response) => {
     return await getCarsController.handle(req, res)
 }))
 
-carRoute.get('/user/:userId', resolveController(async(req: Request, res: Response) => {
+carRoute.get('/', resolveController(async(req: Request, res: Response) => {
     return await listCarsController.handle(req, res)
 }))
 
