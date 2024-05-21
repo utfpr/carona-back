@@ -24,6 +24,7 @@ const listRaceController = new ListRacesController(raceRepo)
 const updateRaceController = new UpdateRaceController(raceRepo)
 const deleteRaceController = new DeleteRaceController(raceRepo, userRepo, passengerRepo)
 const historicRaceController = new HistoricRaceController(raceRepo)
+const listActiveRacesController = new ListRacesController(raceRepo)
 
 raceRoute.post('/', resolveController(async(req: Request, res: Response) => {
     return await createRaceController.handle(req, res)
@@ -39,6 +40,10 @@ raceRoute.get('/', resolveController(async(_: Request, res: Response) => {
 
 raceRoute.get('/historic/:id', resolveController(async(req: Request, res: Response) => {
     return await historicRaceController.handle(req, res)
+}))
+
+raceRoute.get('/active/:id', resolveController(async(req: Request, res: Response) => {
+    return await listActiveRacesController.handle(req, res)
 }))
 
 raceRoute.put('/:id', resolveController(async(req: Request, res: Response) => {

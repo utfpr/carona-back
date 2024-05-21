@@ -41,3 +41,7 @@ export interface IRaceDeleteRequest{
 export interface IHistoricRequest{
   id: string
 }
+
+export interface IListActiveRacesRequest{
+  id: string
+}

@@ -7,4 +7,5 @@ export interface IRaceRepository{
     update(props: IRace, id: string): Promise<IRace>
     delete(id: string): Promise<void> 
     historic(id: string): Promise<IRace[]>
+    listActiveRaces(userId: string): Promise<IRace[]>
 }

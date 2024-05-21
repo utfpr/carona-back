@@ -8,6 +8,31 @@ import { AppError } from "../errors/AppError";
 const prisma = new PrismaClient();
 
 export class RaceRepository implements IRaceRepository{
+    async listActiveRaces(userId: string): Promise<IRace[]> {
+        let result = await prisma.race.findMany({
+            where: {userId: userId, active: true} 
+        })
+
+        const res = await prisma.passengers.findMany({
+            where: { userId: userId, active: true}
+        })
+
+        let i = 0;
+
+        while(i < res.length){
+            let race = await prisma.race.findUnique({
+                where: {id: res[i].raceId}
+            })
+
+            if(race && race.active === true) result.push(race)
+
+            i++;
+            }
+
+            result = ordenate(result)
+
+             return result
+    }
     
     async historic(id: string): Promise<IRace[]> {
         let result = await prisma.race.findMany({
