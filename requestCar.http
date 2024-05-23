@@ -16,7 +16,6 @@ Content-Type: application/json
     "plate": "hoo1111",
     "description": "claysono2@em",
     "mainCar": true
-
 }
 
 ###Delete
