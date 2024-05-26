@@ -13,7 +13,7 @@ export class DeleteCarService{
 
         let user = await this.userRepo.findOneUser(car.userId)
 
-        if(cars.length === 0){
+        /*if(cars.length === 0){
             user.haveCar = false;
             user = await this.userRepo.update(user, car.userId)
         } else {
@@ -21,7 +21,7 @@ export class DeleteCarService{
                 cars[0].mainCar = true;
                 await this.carRepo.update(cars[0], cars[0].id)
             }
-        }
+        } */
 
         return user
 

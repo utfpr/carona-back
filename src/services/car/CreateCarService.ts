@@ -15,7 +15,7 @@ export class CreateCarService{
         let user = await this.userRepo.findOneUser(userId)
         console.log('cc1')
         if(user.haveCar === false){
-            
+            console.log('primeiro carro')
             user.haveCar = true;
             car.mainCar = true;
             await this.carRepo.insert(car.toJSON())
@@ -26,6 +26,8 @@ export class CreateCarService{
 
         }
 
-        return user
+        const res = await this.userRepo.findOneUser(user.id)
+
+        return res
     }
 }
