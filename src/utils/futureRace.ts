@@ -1,9 +1,9 @@
 import { race } from "@prisma/client";
-import { isFuture } from "date-fns";
+import { isFuture, isPast } from "date-fns";
 
 export function futureRace(timestart: Date){
     
- return isFuture(timestart)
+ return !isPast(timestart)
 }
 
 export function listFutureRaces(races: race[]){
