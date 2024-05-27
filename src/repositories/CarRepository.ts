@@ -102,6 +102,22 @@ export class CarRepository implements ICarRepository{
                 data: {mainCar: true}
             })
         }
+
+        const mainCars = await prisma.car.findMany({
+            where: {userId: user.id, active: true, mainCar: true}
+        })
+
+        if(mainCars.length > 1){
+            let i = 1;
+            while(i < mainCars.length){
+                await prisma.car.update({
+                    where: {id: mainCars[i].id},
+                    data: {mainCar: false}
+                })
+
+                i++;
+            }
+        }
         }
 
     }
