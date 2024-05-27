@@ -11,7 +11,7 @@ export class UpdateCarService{
 
         if(!result) throw new AppError("Car not found");
 
-        if(mainCar && mainCar === true){
+        if(mainCar === true){
            let actual = await this.carRepo.findMainCar(result.userId)
            actual.mainCar = false
 

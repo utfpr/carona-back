@@ -63,9 +63,13 @@ export class CarRepository implements ICarRepository{
             where: { id }
         })
 
+        if(!result) throw new AppError('car not found')
+
         const races = await prisma.race.findMany({
             where: {carId: id, active: true}
         })
+
+        if(races.length > 0) throw new AppError('That car cant be deleted as its linked to a race. Delete the races that contain this car so that you can delete it')
 
         const user = await prisma.user.findUnique({
             where: { id: result?.userId}
@@ -82,12 +86,7 @@ export class CarRepository implements ICarRepository{
             })
         }
         
-
-        if(!result) throw new AppError('car not found')
-
-        if(races.length > 0) throw new AppError('That car cant be deleted as its linked to a race. Delete the races that contain this car so that you can delete it')
-        
-        const result1 = await prisma.car.update({
+         const result1 = await prisma.car.update({
             where: { id },
             data: {active: false, mainCar:false}
         })
