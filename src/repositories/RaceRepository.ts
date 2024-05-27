@@ -21,10 +21,10 @@ export class RaceRepository implements IRaceRepository{
 
         while(i < res.length){
             let race = await prisma.race.findUnique({
-                where: {id: res[i].raceId}
+                where: {id: res[i].raceId, active: true}
             })
 
-            if(race && race.active === true) result.push(race)
+            if(race) result.push(race)
 
             i++;
             }
