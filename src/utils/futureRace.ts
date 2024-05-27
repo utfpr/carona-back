@@ -2,8 +2,16 @@ import { race } from "@prisma/client";
 import { isFuture, isPast } from "date-fns";
 
 export function futureRace(timestart: Date){
-    
- return !isPast(timestart)
+
+    const today = new Date()
+
+    const yesterday = new Date(today.getDay() - 1)
+
+    if(timestart > yesterday){
+        return true
+    } else {
+        return false
+    }
 }
 
 export function listFutureRaces(races: race[]){
