@@ -72,7 +72,7 @@ export class CarRepository implements ICarRepository{
         })
 
         const userCars = await prisma.car.findMany({
-            where: {userId: user?.id}
+            where: {userId: user?.id, active: true}
         })
 
         if(user && userCars.length === 1){
