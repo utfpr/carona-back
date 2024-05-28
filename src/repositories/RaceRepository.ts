@@ -13,9 +13,13 @@ export class RaceRepository implements IRaceRepository{
             where: {userId: userId, active: true} 
         })
 
+        console.log(result)
+
         const res = await prisma.passengers.findMany({
             where: { userId: userId, active: true}
         })
+
+        console.log(res)
 
         let i = 0;
 
@@ -23,6 +27,8 @@ export class RaceRepository implements IRaceRepository{
             let race = await prisma.race.findUnique({
                 where: {id: res[i].raceId, active: true}
             })
+
+            console.log(race)
 
             if(race) result.push(race)
 
