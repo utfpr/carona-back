@@ -33,3 +33,6 @@ GET http://localhost:3333/race
 
 ###Historic
 GET http://localhost:3333/race/historic/a2d676d6-d213-4a3f-801d-060ab214b126
+
+###ListActiveRaces
+GET http://localhost:3333/race/active/
