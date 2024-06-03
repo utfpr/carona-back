@@ -42,7 +42,7 @@ export class RaceRepository implements IRaceRepository{
     
     async historic(id: string): Promise<IRace[]> {
         let result = await prisma.race.findMany({
-            where: {userId: id} 
+            where: {userId: id, active: true} 
         })
 
         const res = await prisma.passengers.findMany({
@@ -53,7 +53,7 @@ export class RaceRepository implements IRaceRepository{
 
         while(i < res.length){
             let race = await prisma.race.findUnique({
-                where: {id: res[i].raceId}
+                where: {id: res[i].raceId, active: true}
             })
 
             if(race) result.push(race)
