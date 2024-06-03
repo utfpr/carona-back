@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { IRaceRepository } from "../interfaces/IRaceRepository";
 import { IRace, IRaceUpdateRequest } from "../interfaces/IRaceInterface";
 import { race } from "../entities/race";
-import { futureRace, listFutureRaces, ordenate } from "../utils/futureRace";
+import { futureRace, listFutureRaces, listPastRaces, ordenate } from "../utils/futureRace";
 import { AppError } from "../errors/AppError";
 
 const prisma = new PrismaClient();
@@ -61,9 +61,12 @@ export class RaceRepository implements IRaceRepository{
             i++;
             }
 
+
             result = ordenate(result)
 
-             return result
+            const Result = listPastRaces(result)
+
+             return Result
         }
 
     async findAll(): Promise<IRace[]> {
