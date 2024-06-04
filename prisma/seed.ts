@@ -319,7 +319,7 @@ async function createPassengers(){
             id: createUUID(),
             userId: user3.id,
             raceId: races[1].id,
-            active: false
+            active: true
         }
     })
 }
