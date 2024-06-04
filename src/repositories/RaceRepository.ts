@@ -42,7 +42,7 @@ export class RaceRepository implements IRaceRepository{
     
     async historic(id: string): Promise<IRace[]> {
         let result = await prisma.race.findMany({
-            where: {userId: id, active: true} 
+            where: {userId: id, active: true, timeStart: {lte: new Date()}} 
         })
 
         const res = await prisma.passengers.findMany({
@@ -53,7 +53,7 @@ export class RaceRepository implements IRaceRepository{
 
         while(i < res.length){
             let race = await prisma.race.findUnique({
-                where: {id: res[i].raceId, active: true}
+                where: {id: res[i].raceId, active: true, timeStart: {lte: new Date()}}
             })
 
             if(race) result.push(race)
@@ -61,12 +61,7 @@ export class RaceRepository implements IRaceRepository{
             i++;
             }
 
-
-            result = ordenate(result)
-
-            const Result = listPastRaces(result)
-
-             return Result
+             return result
         }
 
     async findAll(): Promise<IRace[]> {
