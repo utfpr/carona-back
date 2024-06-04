@@ -198,9 +198,35 @@ async function createRaces(){
     await prisma.race.create({
         data: {
             id: createUUID(),
+            originPoint: 'Estacionamento Superior UTFPR',
+            endPoint: "Terminal Urbano Central",
+            timeStart:"2024-05-21T18:57:29.499Z",
+            seats: 1,
+            userId: user1.id,
+            carId: user1car.id,
+            active: true
+        }
+    })
+
+    await prisma.race.create({
+        data: {
+            id: createUUID(),
             originPoint: 'Estacionamento Inferior UTFPR',
             endPoint: "Fiorella",
             timeStart:"2024-07-21T17:57:29.499Z",
+            seats: 0,
+            userId: user2.id,
+            carId: user2car.id,
+            active: true
+        }
+    })
+
+    await prisma.race.create({
+        data: {
+            id: createUUID(),
+            originPoint: 'Estacionamento Inferior UTFPR',
+            endPoint: "Fiorella",
+            timeStart:"2024-04-21T17:57:29.499Z",
             seats: 0,
             userId: user2.id,
             carId: user2car.id,
