@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
 import { IUserRepository } from "../../../interfaces/IUserRepository";
-import { IUser } from "../../../interfaces/IUserInterface";
+import { IUser, IUserUpdateRequest } from "../../../interfaces/IUserInterface";
 import { UpdateUserService } from "../../../services/user/UpdateUserService";
 
 export class UpdateUserController{
     constructor(private userRepo: IUserRepository){}
     async handle(req: Request, res: Response): Promise<Response>{
         const { id } =req.params;
-        const {name, email, password, ra, confirmEmail, confirmPassword }: IUser = req.body;
+        const {name, email, password, ra, confirmEmail, confirmPassword, actualPassword }: IUserUpdateRequest = req.body;
         console.log('1')
         const updateUserService = new UpdateUserService(this.userRepo)
         console.log('2')
@@ -18,7 +18,8 @@ export class UpdateUserController{
             password,
             ra,
             confirmEmail,
-            confirmPassword
+            confirmPassword,
+            actualPassword
         })
 
         return res.status(201).json()

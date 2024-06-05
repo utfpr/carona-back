@@ -18,9 +18,11 @@ export class UpdateUserService {
     password,
     ra,
     confirmEmail,
-    confirmPassword
+    confirmPassword, actualPassword
   }: IUserUpdateRequest): Promise<IUser> {
     const result = await this.userRepo.findOneUser(id);
+
+    if(actualPassword !== result.password) throw new AppError('invalid email or password')
 
     if(!validateEmail(email)) throw new AppError('invalid email or password')
 

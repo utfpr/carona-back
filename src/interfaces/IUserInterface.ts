@@ -31,6 +31,7 @@ export interface IUserUpdateRequest{
     email: string
     password: string
     ra: string
+    actualPassword?: string
     confirmEmail?: string
     confirmPassword?: string
 }
