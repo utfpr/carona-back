@@ -71,7 +71,7 @@ export class UserRepository implements IUserRepository{
     async update(props: IUser, id: string): Promise<IUser> {
         const result = await prisma.user.update({
             where: { id },
-            data: {name: props.name, email: props.email, haveCar: props.haveCar},
+            data: {name: props.name, email: props.email, haveCar: props.haveCar, password: props.password},
             include: {
                 car: true
             }
