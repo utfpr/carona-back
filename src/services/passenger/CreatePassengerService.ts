@@ -9,8 +9,10 @@ import { PassengerEntryNotificationService } from "../notification/PassengerEntr
 export class CreatePassengerService{
     constructor(private passengerRepo: IPassengerRepository, private raceRepo: IRaceRepository, private userRepo: IUserRepository){}
     async execute({userId, raceId}: IPassengerCreateRequest): Promise<IPassenger>{
+
+        const named = await this.userRepo.findOneUser(userId)
         
-        const passenger = new Passenger({ userId, raceId, active: true})
+        const passenger = new Passenger({ userId, raceId, active: true, name: named.name })
         
         let race = await this.raceRepo.findOneRace(raceId)
 

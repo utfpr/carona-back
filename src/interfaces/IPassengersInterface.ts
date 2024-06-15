@@ -3,6 +3,7 @@ export interface IPassenger{
     userId: string;
     raceId: string;
     active: boolean;
+    name: string;
     createdAt?: Date;
     updatedAt?: Date;
 }

@@ -46,6 +46,7 @@ CREATE TABLE "race" (
 -- CreateTable
 CREATE TABLE "passengers" (
     "id" UUID NOT NULL,
+    "name" VARCHAR(255) NOT NULL,
     "userId" UUID NOT NULL,
     "raceId" UUID NOT NULL,
     "active" BOOLEAN NOT NULL,

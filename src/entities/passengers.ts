@@ -8,6 +8,7 @@ export class Passenger{
     active: IPassenger['active']
     createdAt?: IPassenger['createdAt'];
     updatedAt?: IPassenger['updatedAt'];
+    name: IPassenger['name']
 
     constructor(props: Omit<IPassenger, 'id'>, id?: string){
         this.id = id || createUUID();
@@ -16,6 +17,7 @@ export class Passenger{
         this.active = true
         this.createdAt = props.createdAt || new Date();
         this.updatedAt = new Date();
+        this.name = props.name;
     }
 
     toJson(): IPassenger{
@@ -25,7 +27,8 @@ export class Passenger{
             raceId: this.raceId,
             active: this.active,
             createdAt: this.createdAt,
-            updatedAt: this.updatedAt
+            updatedAt: this.updatedAt,
+            name: this.name
         }
     }
 }

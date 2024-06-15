@@ -272,6 +272,7 @@ async function createPassengers(){
     await prisma.passengers.create({
         data: {
             id: createUUID(),
+            name: 'usuário 3',
             userId: user3.id,
             raceId: races[0].id,
             active: true
@@ -281,6 +282,7 @@ async function createPassengers(){
     await prisma.passengers.create({
         data: {
             id: createUUID(),
+            name: 'usuário 3',
             userId: user3.id,
             raceId: races[0].id,
             active: true
@@ -290,6 +292,7 @@ async function createPassengers(){
     await prisma.passengers.create({
         data: {
             id: createUUID(),
+            name: 'usuário 4',
             userId: user4.id,
             raceId: races[0].id,
             active: true
@@ -299,6 +302,7 @@ async function createPassengers(){
     await prisma.passengers.create({
         data: {
             id: createUUID(),
+            name: 'usuário 5',
             userId: user5.id,
             raceId: races[1].id,
             active: true
@@ -308,6 +312,7 @@ async function createPassengers(){
     await prisma.passengers.create({
         data: {
             id: createUUID(),
+            name: 'usuário 6',
             userId: user6.id,
             raceId: races[1].id,
             active: true
@@ -317,6 +322,7 @@ async function createPassengers(){
     await prisma.passengers.create({
         data: {
             id: createUUID(),
+            name: 'usuário 3',
             userId: user3.id,
             raceId: races[1].id,
             active: true

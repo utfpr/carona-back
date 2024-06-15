@@ -23,8 +23,16 @@ export class PassengerRepository implements IPassengerRepository{
     }
     
     async insert(props: IPassenger): Promise<IPassenger> {
+
+        const user = await prisma.user.findUnique({
+            where: { id: props.userId}
+        })
+
+        if(!user) throw new AppError('user not found')
+
+        const name = user.name;
         const result = await prisma.passengers.create({
-            data: { userId: props.userId, raceId: props.raceId, id: props.id, active: true} 
+            data: { name: name, userId: props.userId, raceId: props.raceId, id: props.id, active: true} 
         })
        
         return result
