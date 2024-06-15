@@ -10,7 +10,10 @@ const prisma = new PrismaClient();
 export class RaceRepository implements IRaceRepository{
     async listActiveRaces(userId: string): Promise<IRace[]> {
         let result = await prisma.race.findMany({
-            where: {userId: userId, active: true} 
+            where: {userId: userId, active: true},
+            include: {
+                passengers: true
+            }
         })
 
         console.log(result)
@@ -25,7 +28,10 @@ export class RaceRepository implements IRaceRepository{
 
         while(i < res.length){
             let race = await prisma.race.findUnique({
-                where: {id: res[i].raceId, active: true}
+                where: {id: res[i].raceId, active: true},
+                include: {
+                    passengers: true
+                }
             })
 
             console.log(race)
@@ -35,14 +41,17 @@ export class RaceRepository implements IRaceRepository{
             i++;
             }
 
-            result = ordenate(result)
+            //result = ordenate(result)
 
              return result
     }
     
     async historic(id: string): Promise<IRace[]> {
         let result = await prisma.race.findMany({
-            where: {userId: id, active: true, timeStart: {lte: new Date()}} 
+            where: {userId: id, active: true, timeStart: {lte: new Date()}},
+            include: {
+                passengers: true
+            }
         })
 
         const res = await prisma.passengers.findMany({
@@ -53,7 +62,10 @@ export class RaceRepository implements IRaceRepository{
 
         while(i < res.length){
             let race = await prisma.race.findUnique({
-                where: {id: res[i].raceId, active: true, timeStart: {lte: new Date()}}
+                where: {id: res[i].raceId, active: true, timeStart: {lte: new Date()}},
+                include: {
+                    passengers: true
+                }
             })
 
             if(race) result.push(race)
