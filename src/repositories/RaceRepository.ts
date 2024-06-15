@@ -41,8 +41,8 @@ export class RaceRepository implements IRaceRepository{
             i++;
             }
 
-            //result = ordenate(result)
-
+            result = ordenate(result)
+           
              return result
     }
     

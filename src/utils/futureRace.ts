@@ -78,7 +78,7 @@ export function listPastRaces(races: race[]){
     return list
 }
 
-export function ordenate(list: race[]){
+export function ordenate(list: any[]){
     list = list.sort(function(a, b){
         if(a.timeStart < b.timeStart){
             return -1;
