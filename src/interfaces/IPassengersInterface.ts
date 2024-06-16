@@ -1,6 +1,7 @@
 export interface IPassenger{
-    userId: number;
-    raceId: number;
+    id: string;
+    userId: string;
+    raceId: string;
     active: boolean;
     name: string;
     createdAt?: Date;
@@ -8,10 +9,10 @@ export interface IPassenger{
 }
 
 export interface IPassengerCreateRequest{
-    userId: number;
-    raceId: number;
+    userId: string;
+    raceId: string;
 }
 
 export interface IPassengerDeleteRequest{
-    id: number;
+    id: string;
 }

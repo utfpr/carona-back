@@ -11,7 +11,7 @@ export class DeleteRaceNotificationService{
         private passengerRepo: IPassengerRepository
     ) {}
 
-    async execute(raceId: number): Promise<void>{
+    async execute(raceId: string): Promise<void>{
         const race = await this.raceRepo.findOneRace(raceId)
         const driver = await this.userRepo.findOneUser(race.userId)
         const passengers = await this.passengerRepo.listRacePassengers(raceId)

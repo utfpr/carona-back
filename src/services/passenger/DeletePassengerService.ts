@@ -1,4 +1,3 @@
-import { AppError } from "../../errors/AppError";
 import { IPassengerRepository } from "../../interfaces/IPassengerRepository";
 import { IPassengerDeleteRequest } from "../../interfaces/IPassengersInterface";
 import { IRace } from "../../interfaces/IRaceInterface";
@@ -15,11 +14,11 @@ export class DeletePassengerService{
         let race = await this.raceRepo.findOneRace(result.raceId)
 
         race.seats++;
-        if(!race.id) throw new AppError('user does not exist')
+
         await this.raceRepo.update(race, race.id)
 
         const notification = new PassengerExitNotificationService(this.passengerRepo, this.userRepo, this.raceRepo);
-        if(!result.id) throw new AppError('something not found')
+        
         await notification.execute(result.id)
 
         await this.passengerRepo.delete(id)

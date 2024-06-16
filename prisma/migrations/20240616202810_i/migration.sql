@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "user" (
-    "id" SERIAL NOT NULL,
+    "id" UUID NOT NULL,
     "name" VARCHAR(255) NOT NULL,
     "email" VARCHAR(255) NOT NULL,
     "ra" VARCHAR(11) NOT NULL,
@@ -15,13 +15,13 @@ CREATE TABLE "user" (
 
 -- CreateTable
 CREATE TABLE "car" (
-    "id" SERIAL NOT NULL,
+    "id" UUID NOT NULL,
     "plate" VARCHAR(255) NOT NULL,
     "description" VARCHAR(255) NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "mainCar" BOOLEAN NOT NULL,
-    "userId" INTEGER NOT NULL,
+    "userId" UUID NOT NULL,
     "active" BOOLEAN NOT NULL,
 
     CONSTRAINT "car_pkey" PRIMARY KEY ("id")
@@ -29,12 +29,12 @@ CREATE TABLE "car" (
 
 -- CreateTable
 CREATE TABLE "race" (
-    "id" SERIAL NOT NULL,
+    "id" UUID NOT NULL,
     "originPoint" VARCHAR(255) NOT NULL,
     "endPoint" VARCHAR(255) NOT NULL,
     "timeStart" TIMESTAMPTZ NOT NULL,
-    "userId" INTEGER NOT NULL,
-    "carId" INTEGER NOT NULL,
+    "userId" UUID NOT NULL,
+    "carId" UUID NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "seats" INTEGER NOT NULL,
@@ -45,10 +45,10 @@ CREATE TABLE "race" (
 
 -- CreateTable
 CREATE TABLE "passengers" (
-    "id" SERIAL NOT NULL,
+    "id" UUID NOT NULL,
     "name" VARCHAR(255) NOT NULL,
-    "userId" INTEGER NOT NULL,
-    "raceId" INTEGER NOT NULL,
+    "userId" UUID NOT NULL,
+    "raceId" UUID NOT NULL,
     "active" BOOLEAN NOT NULL,
 
     CONSTRAINT "passengers_pkey" PRIMARY KEY ("id")

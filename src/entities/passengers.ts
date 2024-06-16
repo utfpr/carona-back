@@ -2,6 +2,7 @@ import { createUUID } from "../utils/createUUID";
 import { IPassenger } from "../interfaces/IPassengersInterface";
 
 export class Passenger{
+    id: IPassenger['id'];
     userId: IPassenger['userId']
     raceId: IPassenger['raceId']
     active: IPassenger['active']
@@ -9,7 +10,8 @@ export class Passenger{
     updatedAt?: IPassenger['updatedAt'];
     name: IPassenger['name']
 
-    constructor(props: Omit<IPassenger, 'id'>, id?: number){
+    constructor(props: Omit<IPassenger, 'id'>, id?: string){
+        this.id = id || createUUID();
         this.userId = props.userId;
         this.raceId = props.raceId;
         this.active = true
@@ -20,6 +22,7 @@ export class Passenger{
 
     toJson(): IPassenger{
         return{
+            id: this.id,
             userId: this.userId,
             raceId: this.raceId,
             active: this.active,

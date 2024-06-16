@@ -14,13 +14,11 @@ export class AuthenticateUserService {
     
     async execute({email, password}: IUserAuthenticateRequest): Promise<Object> {
         const user = await this.userRepo.findByEmail(email);
-        if(!user.id) throw new AppError('user does not exist')
         if(user) {
             console.log(user.password, "===", password)
             
             if(user.password === password) {
-                const Id = user.id.toString()
-                const token = this.jwtRepo.generate({ email: user.email!, id: Id })
+                const token = this.jwtRepo.generate({ email: user.email!, id: user.id })
                 console.log(token)
 
                 return { user, token }

@@ -7,10 +7,8 @@ export class HistoricRaceController{
     async handle(req: Request, res: Response): Promise<Response>{
         const { id } = req.params;
 
-        const Id = parseInt(req.params.id, 10);
-
         const getRaceService = new HistoricRaceService(this.raceRepo)
-        const result = await getRaceService.execute({ id: Id })
+        const result = await getRaceService.execute({ id })
 
         return res.json(result)
     }

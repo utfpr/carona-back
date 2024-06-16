@@ -8,12 +8,11 @@ export class UpdateCarController{
     constructor(private carRepo: ICarRepository){}
     async handle(req: Request, res: Response): Promise<Response>{
         const { id } = req.params;
-        const Id = parseInt(req.params.id, 10);
         const {plate, description, userId, mainCar }: ICar = req.body;
 
         const updateCarService = new UpdateCarService(this.carRepo)
         await updateCarService.execute({
-            id: Id,
+            id,
             plate,
             description,
             userId,

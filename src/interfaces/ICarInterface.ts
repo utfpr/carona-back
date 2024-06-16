@@ -1,7 +1,8 @@
 export interface ICar{
+    id: string
     plate: string
     description: string
-    userId: number
+    userId: string
     mainCar: boolean
     active: boolean
     createdAt?: Date
@@ -11,11 +12,11 @@ export interface ICar{
 export interface ICarCreateRequest{
     plate: string
     description: string
-    userId: number
+    userId: string
 }
 
 export interface ICarGetRequest{
-    id: number
+    id: string
 }
 
 export interface ICarsGetRequest{
@@ -23,16 +24,16 @@ export interface ICarsGetRequest{
 }
 
 export interface ICarUpdateRequest{
-    id: number
+    id: string
     plate: string
     description: string
-    userId: number
+    userId: string
     mainCar: boolean
     createdAt?: Date
     updatedAt?: Date
 }
 
 export interface ICarDeleteRequest{
-    id:number
+    id:string
 }
 
