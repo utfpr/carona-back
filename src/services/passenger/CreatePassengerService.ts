@@ -41,11 +41,11 @@ export class CreatePassengerService{
         
         race.seats--;
         
-        await this.raceRepo.update(race, race.id)
+        await this.raceRepo.update(race, race.id || -1)
 
         const notification = new PassengerEntryNotificationService(this.userRepo, this.passengerRepo, this.raceRepo);
         
-        await notification.execute(passenger.id, passenger.userId)
+        await notification.execute(passenger.id || -1, passenger.userId)
     
         return result
 

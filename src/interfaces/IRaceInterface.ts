@@ -1,10 +1,9 @@
 export interface IRace{
-  id: string 
   originPoint: string 
   endPoint: string
   timeStart: Date
-  userId:string
-  carId: string
+  userId:number
+  carId: number
   seats: number
   active: boolean
   createdAt?: Date
@@ -15,33 +14,33 @@ export interface IRaceCreateRequest{
   originPoint: string 
   endPoint: string
   timeStart: Date
-  userId:string
-  carId: string
+  userId:number
+  carId: number
   seats: number
 }
 
 export interface IRaceGetRequest{
-  id: string
+  id: number
 }
 
 export interface IRaceUpdateRequest{
-  id: string 
+  id: number
   originPoint?: string 
   endPoint?: string
   timeStart?: Date
-  userId?:string
-  carId?: string
+  userId?:number
+  carId?: number
   seats?: number
 }
 
 export interface IRaceDeleteRequest{
-  id: string
+  id: number
 }
 
 export interface IHistoricRequest{
-  id: string
+  id: number
 }
 
 export interface IListActiveRacesRequest{
-  id: string
+  id: number
 }

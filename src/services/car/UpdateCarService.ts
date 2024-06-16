@@ -14,7 +14,7 @@ export class UpdateCarService{
         if(mainCar === true){
            let actual = await this.carRepo.findMainCar(result.userId)
            actual.mainCar = false
-
+           if(!actual.id) throw new AppError('user does not exist')
            await this.carRepo.update(actual, actual.id)
         }
 

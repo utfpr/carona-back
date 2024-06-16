@@ -1,5 +1,4 @@
 export interface IUser{
-    id: string
     name: string
     email: string
     password: string
@@ -22,11 +21,11 @@ export interface IUserCreateRequest{
 }
 
 export interface IUserGetRequest{
-    id: string
+    id: number
 }
 
 export interface IUserUpdateRequest{
-    id:string
+    id:number
     name: string
     email: string
     password: string
@@ -37,7 +36,7 @@ export interface IUserUpdateRequest{
 }
 
 export interface IUserDeleteRequest{
-    id:string
+    id:number
 }
 
 export interface IUserAuthenticateRequest {

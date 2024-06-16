@@ -56,7 +56,7 @@ export class UserRepository implements IUserRepository{
         return result
     }
 
-    async findOneUser(id: string): Promise<IUser> {
+    async findOneUser(id: number): Promise<IUser> {
         const result = await prisma.user.findUnique({
             where: { id },
             include:{
@@ -68,7 +68,7 @@ export class UserRepository implements IUserRepository{
         return result;
     }
 
-    async update(props: IUser, id: string): Promise<IUser> {
+    async update(props: IUser, id: number): Promise<IUser> {
         const result = await prisma.user.update({
             where: { id },
             data: {name: props.name, email: props.email, haveCar: props.haveCar, password: props.password},
@@ -80,7 +80,7 @@ export class UserRepository implements IUserRepository{
         return result
     }
 
-    async delete(id: string): Promise<void> {
+    async delete(id: number): Promise<void> {
         await prisma.user.delete({
             where: { id }
         })

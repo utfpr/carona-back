@@ -11,7 +11,7 @@ export class PassengerExitNotificationService{
         private raceRepo: IRaceRepository
         ) {}
 
-    async execute(passengerId: string): Promise<void>{
+    async execute(passengerId: number): Promise<void>{
         const passenger = await this.passengerRepo.get(passengerId)
         const race = await this.raceRepo.findOneRace(passenger.raceId)
         const driver = await this.userRepo.findOneUser(race.userId)

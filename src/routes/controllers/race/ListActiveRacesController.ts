@@ -7,8 +7,10 @@ export class ListActiveRacesController{
     async handle(req: Request, res: Response): Promise<Response>{
         const { id } = req.params;
 
+        const Id = parseInt(req.params.id, 10);
+
         const getRaceService = new ListActiveRaceService(this.raceRepo)
-        const result = await getRaceService.execute({ id })
+        const result = await getRaceService.execute({ id: Id })
 
         return res.json(result)
     }

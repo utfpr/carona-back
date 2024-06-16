@@ -6,7 +6,7 @@ import { IRace } from "../interfaces/IRaceInterface";
 
 const prisma = new PrismaClient();
 export class PassengerRepository implements IPassengerRepository{
-    async listUserRaces(userId: string): Promise<IPassenger[]> {
+    async listUserRaces(userId: number): Promise<IPassenger[]> {
         const result = await prisma.passengers.findMany({
             where: {userId, active: true}
         })
@@ -14,7 +14,7 @@ export class PassengerRepository implements IPassengerRepository{
         return result
     }
 
-    async listRacePassengers(raceId: string): Promise<IPassenger[]> {
+    async listRacePassengers(raceId: number): Promise<IPassenger[]> {
         const result = await prisma.passengers.findMany({
             where: {raceId, active: true}
         })
@@ -32,13 +32,13 @@ export class PassengerRepository implements IPassengerRepository{
 
         const name = user.name;
         const result = await prisma.passengers.create({
-            data: { name: name, userId: props.userId, raceId: props.raceId, id: props.id, active: true} 
+            data: { name: name, userId: props.userId, raceId: props.raceId, active: true} 
         })
        
         return result
     }
 
-    async delete(id: string): Promise<void> {
+    async delete(id: number): Promise<void> {
         const result = await prisma.passengers.findUnique({
             where: { id }
         })
@@ -50,7 +50,7 @@ export class PassengerRepository implements IPassengerRepository{
         })
     }
 
-    async get(id:string): Promise<IPassenger>{
+    async get(id:number): Promise<IPassenger>{
         const result = await prisma.passengers.findUnique({
             where: { id, active: true }
         })

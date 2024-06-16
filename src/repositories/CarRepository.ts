@@ -6,7 +6,7 @@ import { AppError } from "../errors/AppError";
 const prisma = new PrismaClient();
 
 export class CarRepository implements ICarRepository{
-    async findMainCar(userId: string): Promise<ICar> {
+    async findMainCar(userId: number): Promise<ICar> {
         const car = await prisma.car.findFirst({
             where: { userId, mainCar:true }
         })
@@ -16,7 +16,7 @@ export class CarRepository implements ICarRepository{
         return car
     }
 
-    async findUserCars(userId: string): Promise<ICar[]> {
+    async findUserCars(userId: number): Promise<ICar[]> {
         const result = await prisma.car.findMany({
             where: {userId, active: true}
         })
@@ -24,7 +24,7 @@ export class CarRepository implements ICarRepository{
         return result
     }
 
-    async findOneCar(id: string): Promise<ICar> {
+    async findOneCar(id: number): Promise<ICar> {
         const result = await prisma.car.findUnique({
             where: {id}
         });
@@ -34,7 +34,7 @@ export class CarRepository implements ICarRepository{
         return result
     }
 
-    async findAll(userId: string): Promise<ICar[]> {
+    async findAll(userId: number): Promise<ICar[]> {
         const result = await prisma.car.findMany({
             where: {userId: userId, active: true}
         })
@@ -49,7 +49,7 @@ export class CarRepository implements ICarRepository{
         return result;
     }
 
-    async update(props: ICar, id: string): Promise<ICar> {
+    async update(props: ICar, id: number): Promise<ICar> {
         const result = await prisma.car.update({
             where: { id },
             data: props
@@ -58,7 +58,7 @@ export class CarRepository implements ICarRepository{
         return result;
     }
 
-    async delete(id: string): Promise<void> {
+    async delete(id: number): Promise<void> {
         const result = await prisma.car.findUnique({
             where: { id }
         })

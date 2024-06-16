@@ -25,7 +25,7 @@ export class CreateCarService{
         await this.carRepo.insert(car.toJSON())
 
         }
-
+        if(!user.id) throw new AppError('user does not exist')
         const res = await this.userRepo.findOneUser(user.id)
 
         return res
