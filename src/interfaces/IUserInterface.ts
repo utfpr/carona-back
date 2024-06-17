@@ -1,5 +1,18 @@
 export interface IUser{
-    id: string
+    name: string
+    email: string
+    password: string
+    haveCar: boolean
+    ra: string
+    active: boolean
+    createdAt?: Date
+    updatedAt?: Date
+    confirmEmail?: string,
+    confirmPassword?: string
+}
+
+export interface IUserReturn{
+    id: number
     name: string
     email: string
     password: string
@@ -22,11 +35,11 @@ export interface IUserCreateRequest{
 }
 
 export interface IUserGetRequest{
-    id: string
+    id: number
 }
 
 export interface IUserUpdateRequest{
-    id:string
+    id: number
     name: string
     email: string
     password: string
@@ -37,7 +50,7 @@ export interface IUserUpdateRequest{
 }
 
 export interface IUserDeleteRequest{
-    id:string
+    id: number
 }
 
 export interface IUserAuthenticateRequest {

@@ -21,7 +21,7 @@ export class UpdateRaceService{
             carId: result.carId,
             seats:  seats || result.seats,
             active: true
-        }, result.id);
+        });
 
         console.log("q")
         await this.raceRepo.update(Race.toJSON(), id);

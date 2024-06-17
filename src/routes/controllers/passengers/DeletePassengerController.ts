@@ -9,8 +9,10 @@ export class DeletePassengerController{
     async handle(req: Request, res: Response): Promise<Response>{
         const { id } = req.params;
 
+        const Id = parseInt(req.params.id, 10);
+
         const deletePassengerService = new DeletePassengerService(this.passengerRepo, this.raceRepo, this.userRepo)
-        await deletePassengerService.execute({ id })
+        await deletePassengerService.execute({ id: Id })
 
         return res.status(200).send()
     }

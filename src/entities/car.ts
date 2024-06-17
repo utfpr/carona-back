@@ -2,7 +2,6 @@ import { ICar } from "../interfaces/ICarInterface"
 import { createUUID } from "../utils/createUUID"
 
 export class Car{
-    id: ICar['id']
     plate: ICar['plate']
     description: ICar['description']
     userId: ICar['userId']
@@ -12,7 +11,6 @@ export class Car{
     active: ICar['active']
 
     constructor(props: Omit<ICar, 'id'>, id?:string){
-        this.id = id || createUUID();
         this.plate = props.plate;
         this.description = props.description;
         this.userId = props.userId;
@@ -24,7 +22,6 @@ export class Car{
 
     toJSON(): ICar {
         return{
-            id: this.id,
             plate: this.plate,
             description: this.description,
             userId: this.userId,

@@ -10,12 +10,13 @@ export class UpdateCarController{
         const { id } = req.params;
         const {plate, description, userId, mainCar }: ICar = req.body;
 
+        const Id = parseInt(req.params.id, 10);
+
         const updateCarService = new UpdateCarService(this.carRepo)
         await updateCarService.execute({
-            id,
+            id: Id,
             plate,
             description,
-            userId,
             mainCar
         })
 

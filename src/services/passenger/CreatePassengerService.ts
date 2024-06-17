@@ -45,7 +45,7 @@ export class CreatePassengerService{
 
         const notification = new PassengerEntryNotificationService(this.userRepo, this.passengerRepo, this.raceRepo);
         
-        await notification.execute(passenger.id, passenger.userId)
+        await notification.execute(result.id, passenger.userId)
     
         return result
 

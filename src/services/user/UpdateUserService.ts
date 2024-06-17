@@ -42,8 +42,7 @@ export class UpdateUserService {
         haveCar: result.haveCar,
         ra: ra || result.ra,
         active: true
-      },
-      result.id
+      }
     );
     
 

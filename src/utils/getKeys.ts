@@ -7,7 +7,7 @@ export function getUserKeys() {
   const propsArray: PropsArray = Object.keys(new User({} as IUser)) as PropsArray;
 
   for (const prop of propsArray) {
-    if (prop === 'id' || prop === 'password' || prop === 'updatedAt' || prop === 'createdAt') continue;
+    if (prop === 'password' || prop === 'updatedAt' || prop === 'createdAt') continue;
     toReturn.push(prop);
   }
   return toReturn;

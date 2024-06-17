@@ -1,11 +1,11 @@
-import { IUser } from "./IUserInterface"
+import { IUser, IUserReturn } from "./IUserInterface"
 
 export interface IUserRepository {
-    findAll(): Promise<IUser[]>
-    findOneUser(id:string): Promise<IUser>
-    findByEmail(email:string): Promise<IUser>
-    findByRa(ra: string): Promise<IUser>
-    insert(props: IUser): Promise<IUser>
-    update(props: IUser, id: string): Promise<IUser>
-    delete(id: string): Promise<void> 
+    findAll(): Promise<IUserReturn[]>
+    findOneUser(id:number): Promise<IUserReturn>
+    findByEmail(email:string): Promise<IUserReturn>
+    findByRa(ra: string): Promise<IUserReturn>
+    insert(props: IUser): Promise<IUserReturn>
+    update(props: IUser, id: number): Promise<IUserReturn>
+    delete(id: number): Promise<void> 
 }

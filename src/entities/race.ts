@@ -3,7 +3,6 @@ import { createUUID } from "../utils/createUUID"
 
 
 export class race{
-  id: IRace['id']
   originPoint: IRace['originPoint']
   endPoint: IRace['endPoint']
   timeStart: IRace['timeStart']
@@ -15,7 +14,6 @@ export class race{
   updatedAt: IRace['updatedAt']
 
   constructor(props: Omit<IRace, 'id'>, id?:string){
-    this.id =  id || createUUID();
     this.originPoint = props.originPoint;
     this.endPoint = props.endPoint;
     this.timeStart = props.timeStart;
@@ -29,7 +27,6 @@ export class race{
 
   toJSON(): IRace{
     return {
-        id: this.id,
         originPoint: this.originPoint,
         endPoint: this.endPoint,
         timeStart: this.timeStart,

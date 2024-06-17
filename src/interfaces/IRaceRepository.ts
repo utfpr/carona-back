@@ -1,11 +1,11 @@
-import { IRace } from "./IRaceInterface";
+import { IRace, IRaceReturn } from "./IRaceInterface";
 
 export interface IRaceRepository{
-    findAll(): Promise<IRace[]>
-    findOneRace(id:string): Promise<IRace>
-    insert(props: IRace): Promise<IRace>
-    update(props: IRace, id: string): Promise<IRace>
-    delete(id: string): Promise<void> 
-    historic(id: string): Promise<IRace[]>
-    listActiveRaces(userId: string): Promise<IRace[]>
+    findAll(): Promise<IRaceReturn[]>
+    findOneRace(id:number): Promise<IRaceReturn>
+    insert(props: IRace): Promise<IRaceReturn>
+    update(props: IRace, id: number): Promise<IRaceReturn>
+    delete(id: number): Promise<void> 
+    historic(id: number): Promise<IRaceReturn[]>
+    listActiveRaces(userId: number): Promise<IRaceReturn[]>
 }

@@ -1,11 +1,11 @@
-import { IPassenger, IPassengerCreateRequest } from "./IPassengersInterface";
+import { IPassenger, IPassengerCreateRequest, IPassengerReturn } from "./IPassengersInterface";
 import { IRace } from "./IRaceInterface";
 
 export interface IPassengerRepository{
-    insert(props: IPassengerCreateRequest): Promise<IPassenger>
-    delete(id: string): Promise<void>
-    get(id: string): Promise<IPassenger>
-    listRacePassengers(raceId: string): Promise<IPassenger[]>
-    listUserRaces(userId: string): Promise<IPassenger[]>
+    insert(props: IPassengerCreateRequest): Promise<IPassengerReturn>
+    delete(id: number): Promise<void>
+    get(id: number): Promise<IPassengerReturn>
+    listRacePassengers(raceId: number): Promise<IPassengerReturn[]>
+    listUserRaces(userId: number): Promise<IPassengerReturn[]>
 }
 

@@ -9,8 +9,10 @@ export class DeleteCarController{
     async handle(req: Request, res: Response): Promise<Response>{
         const { id } = req.params;
 
+        const Id = parseInt(req.params.id, 10);
+
         const deleteCarService = new DeleteCarService(this.carRepo, this.userRepo)
-        await deleteCarService.execute({ id })
+        await deleteCarService.execute({ id: Id })
 
         return res.status(200).send()
     }

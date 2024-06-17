@@ -1,12 +1,12 @@
 import { PrismaClient } from "@prisma/client";
 import { IUserRepository } from "../interfaces/IUserRepository";
-import { IUser } from "../interfaces/IUserInterface";
+import { IUser, IUserReturn } from "../interfaces/IUserInterface";
 import { AppError } from "../errors/AppError";
 
 const prisma = new PrismaClient();
 
 export class UserRepository implements IUserRepository{
-    async findByRa(ra: string): Promise<IUser> {
+    async findByRa(ra: string): Promise<IUserReturn> {
         const result = await prisma.user.findUnique({
             where: { ra },
             include: {
@@ -19,7 +19,7 @@ export class UserRepository implements IUserRepository{
         return result
     }
 
-    async findByEmail(email: string): Promise<IUser> {
+    async findByEmail(email: string): Promise<IUserReturn> {
         let result = await prisma.user.findUnique({
             where: { email },
             include: { 
@@ -33,7 +33,7 @@ export class UserRepository implements IUserRepository{
 
           return result;
     }
-    async findAll(): Promise<IUser[]> {
+    async findAll(): Promise<IUserReturn[]> {
         const result = await prisma.user.findMany({
             include: {
                 car: true
@@ -42,7 +42,7 @@ export class UserRepository implements IUserRepository{
         return result;
     }
     
-    async insert(props: IUser): Promise<IUser> {
+    async insert(props: IUser): Promise<IUserReturn> {
 
         props.haveCar = false;
 
@@ -56,7 +56,7 @@ export class UserRepository implements IUserRepository{
         return result
     }
 
-    async findOneUser(id: string): Promise<IUser> {
+    async findOneUser(id: number): Promise<IUserReturn> {
         const result = await prisma.user.findUnique({
             where: { id },
             include:{
@@ -68,7 +68,7 @@ export class UserRepository implements IUserRepository{
         return result;
     }
 
-    async update(props: IUser, id: string): Promise<IUser> {
+    async update(props: IUser, id: number): Promise<IUserReturn> {
         const result = await prisma.user.update({
             where: { id },
             data: {name: props.name, email: props.email, haveCar: props.haveCar, password: props.password},
@@ -80,7 +80,7 @@ export class UserRepository implements IUserRepository{
         return result
     }
 
-    async delete(id: string): Promise<void> {
+    async delete(id: number): Promise<void> {
         await prisma.user.delete({
             where: { id }
         })

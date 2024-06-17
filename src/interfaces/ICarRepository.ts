@@ -1,11 +1,11 @@
-import { ICar } from "./ICarInterface";
+import { ICar, ICarReturn } from "./ICarInterface";
 
 export interface ICarRepository{
-    findAll(userId: string): Promise<ICar[]>
-    findOneCar(id:string): Promise<ICar>
-    insert(props: ICar): Promise<ICar>
-    update(props:ICar, id:string): Promise<ICar>
-    delete(id:string): Promise<void>
-    findUserCars(userId: string): Promise<ICar[]>
-    findMainCar(userId: string): Promise<ICar>
+    findAll(userId: number): Promise<ICarReturn[]>
+    findOneCar(id:number): Promise<ICarReturn>
+    insert(props: ICar): Promise<ICarReturn>
+    update(props:ICar, id:number): Promise<ICarReturn>
+    delete(id:number): Promise<void>
+    findUserCars(userId: number): Promise<ICarReturn[]>
+    findMainCar(userId: number): Promise<ICarReturn>
 }

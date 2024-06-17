@@ -7,8 +7,10 @@ export class GetUserController{
     async handle(req: Request, res: Response): Promise<Response>{
         const { id } = req.params;
 
+        const Id = parseInt(req.params.id, 10);
+
     const getUserService = new GetUserService(this.userRepo)
-    const result = await getUserService.execute({ id })
+    const result = await getUserService.execute({ id: Id })
     return res.json(result)
     }
 }

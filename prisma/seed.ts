@@ -26,7 +26,6 @@ const prisma = new PrismaClient({
 async function createUsers(){
     await prisma.user.create({
         data: {
-            id: createUUID(),
             name: 'usuário 1',
             email: 'usuario1@gmail.com',
             ra: 'a0000001',
@@ -38,7 +37,6 @@ async function createUsers(){
 
     await prisma.user.create({
         data: {
-            id: createUUID(),
             name: 'usuário 2',
             email: 'usuario2@gmail.com',
             ra: 'a0000002',
@@ -50,7 +48,6 @@ async function createUsers(){
 
     await prisma.user.create({
         data: {
-            id: createUUID(),
             name: 'usuário 3',
             email: 'usuario3@gmail.com',
             ra: 'a0000003',
@@ -62,7 +59,6 @@ async function createUsers(){
 
     await prisma.user.create({
         data: {
-            id: createUUID(),
             name: 'usuário 4',
             email: 'usuario4@gmail.com',
             ra: 'a0000004',
@@ -74,7 +70,6 @@ async function createUsers(){
 
     await prisma.user.create({
         data: {
-            id: createUUID(),
             name: 'usuário 5',
             email: 'usuario5@gmail.com',
             ra: 'a0000005',
@@ -86,7 +81,6 @@ async function createUsers(){
 
     await prisma.user.create({
         data: {
-            id: createUUID(),
             name: 'usuário 6',
             email: 'usuario6@gmail.com',
             ra: 'a0000006',
@@ -110,8 +104,7 @@ async function createCars(){
         data: {
             plate: 'aaa1111',
             description: 'carro do usuário 1',
-            userId: user1?.id || "null",
-            id: createUUID(),
+            userId: user1?.id || -1,
             active: true,
             mainCar: true
         }
@@ -121,8 +114,7 @@ async function createCars(){
         data: {
             plate: 'aaa2222',
             description: 'carro do usuário 1',
-            userId: user1?.id || "null",
-            id: createUUID(),
+            userId: user1?.id || -1,
             active: true,
             mainCar: false
         }
@@ -132,8 +124,7 @@ async function createCars(){
         data: {
             plate: 'aaa3333',
             description: 'carro do usuário 1',
-            userId: user1?.id || "null",
-            id: createUUID(),
+            userId: user1?.id || -1,
             active: true,
             mainCar: false
         }
@@ -143,8 +134,7 @@ async function createCars(){
         data: {
             plate: 'bbb1111',
             description: 'carro do usuário 2',
-            userId: user2?.id || "null",
-            id: createUUID(),
+            userId: user2?.id || -1,
             active: true,
             mainCar: true
         }
@@ -154,8 +144,7 @@ async function createCars(){
         data: {
             plate: 'bbb2222',
             description: 'carro do usuário 2',
-            userId: user2?.id || "null",
-            id: createUUID(),
+            userId: user2?.id || -1,
             active: true,
             mainCar: false
         }
@@ -184,7 +173,6 @@ async function createRaces(){
      
     await prisma.race.create({
         data: {
-            id: createUUID(),
             originPoint: 'Estacionamento Superior UTFPR',
             endPoint: "Terminal Urbano Central",
             timeStart:"2024-07-21T18:57:29.499Z",
@@ -197,7 +185,6 @@ async function createRaces(){
 
     await prisma.race.create({
         data: {
-            id: createUUID(),
             originPoint: 'Estacionamento Superior UTFPR',
             endPoint: "Terminal Urbano Central",
             timeStart:"2024-05-21T18:57:29.499Z",
@@ -210,7 +197,6 @@ async function createRaces(){
 
     await prisma.race.create({
         data: {
-            id: createUUID(),
             originPoint: 'Estacionamento Inferior UTFPR',
             endPoint: "Fiorella",
             timeStart:"2024-07-21T17:57:29.499Z",
@@ -223,7 +209,6 @@ async function createRaces(){
 
     await prisma.race.create({
         data: {
-            id: createUUID(),
             originPoint: 'Estacionamento Inferior UTFPR',
             endPoint: "Fiorella",
             timeStart:"2024-04-21T17:57:29.499Z",
@@ -236,7 +221,6 @@ async function createRaces(){
 
     await prisma.race.create({
         data: {
-            id: createUUID(),
             originPoint: 'Estacionamento Superior UTFPR',
             endPoint: "Terminal Urbano Central",
             timeStart:"2024-07-21T18:57:29.499Z",
@@ -271,7 +255,6 @@ async function createPassengers(){
 
     await prisma.passengers.create({
         data: {
-            id: createUUID(),
             name: 'usuário 3',
             userId: user3.id,
             raceId: races[0].id,
@@ -281,7 +264,6 @@ async function createPassengers(){
 
     await prisma.passengers.create({
         data: {
-            id: createUUID(),
             name: 'usuário 3',
             userId: user3.id,
             raceId: races[0].id,
@@ -291,7 +273,6 @@ async function createPassengers(){
 
     await prisma.passengers.create({
         data: {
-            id: createUUID(),
             name: 'usuário 4',
             userId: user4.id,
             raceId: races[0].id,
@@ -301,7 +282,6 @@ async function createPassengers(){
 
     await prisma.passengers.create({
         data: {
-            id: createUUID(),
             name: 'usuário 5',
             userId: user5.id,
             raceId: races[1].id,
@@ -311,7 +291,6 @@ async function createPassengers(){
 
     await prisma.passengers.create({
         data: {
-            id: createUUID(),
             name: 'usuário 6',
             userId: user6.id,
             raceId: races[1].id,
@@ -321,7 +300,6 @@ async function createPassengers(){
 
     await prisma.passengers.create({
         data: {
-            id: createUUID(),
             name: 'usuário 3',
             userId: user3.id,
             raceId: races[1].id,

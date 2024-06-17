@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { IRaceRepository } from "../interfaces/IRaceRepository";
-import { IRace, IRaceUpdateRequest } from "../interfaces/IRaceInterface";
+import { IRace, IRaceReturn, IRaceUpdateRequest } from "../interfaces/IRaceInterface";
 import { race } from "../entities/race";
 import { futureRace, listFutureRaces, listPastRaces, ordenate } from "../utils/futureRace";
 import { AppError } from "../errors/AppError";
@@ -8,7 +8,7 @@ import { AppError } from "../errors/AppError";
 const prisma = new PrismaClient();
 
 export class RaceRepository implements IRaceRepository{
-    async listActiveRaces(userId: string): Promise<IRace[]> {
+    async listActiveRaces(userId: number): Promise<IRaceReturn[]> {
         let result = await prisma.race.findMany({
             where: {userId: userId, active: true},
             include: {
@@ -46,7 +46,7 @@ export class RaceRepository implements IRaceRepository{
              return result
     }
     
-    async historic(id: string): Promise<IRace[]> {
+    async historic(id: number): Promise<IRaceReturn[]> {
         let result = await prisma.race.findMany({
             where: {userId: id, active: true, timeStart: {lte: new Date()}},
             include: {
@@ -76,7 +76,7 @@ export class RaceRepository implements IRaceRepository{
              return result
         }
 
-    async findAll(): Promise<IRace[]> {
+    async findAll(): Promise<IRaceReturn[]> {
         const result = await prisma.race.findMany({
             where: { active: true}, 
             include: {
@@ -90,7 +90,7 @@ export class RaceRepository implements IRaceRepository{
         return res;
     }
 
-    async findOneRace(id: string): Promise<IRace> {
+    async findOneRace(id: number): Promise<IRaceReturn> {
         const result = await prisma.race.findUnique({
             where: { id },
             include: {
@@ -103,7 +103,7 @@ export class RaceRepository implements IRaceRepository{
         return result;
     }
 
-    async insert(props: IRace): Promise<IRace> {
+    async insert(props: IRace): Promise<IRaceReturn> {
         const result = await prisma.race.create({
             data: props
         })
@@ -111,7 +111,7 @@ export class RaceRepository implements IRaceRepository{
         return result
     }
 
-    async update(props: IRaceUpdateRequest, id: string): Promise<IRace> {
+    async update(props: IRace, id: number): Promise<IRaceReturn> {
         console.log(props.seats)
         const vaga = props.seats;
         const result = await prisma.race.update({
@@ -121,7 +121,7 @@ export class RaceRepository implements IRaceRepository{
 
         return result
     }
-    async delete(id: string): Promise<void> {
+    async delete(id: number): Promise<void> {
        const result = await prisma.race.findUnique({
         where: { id }
        })

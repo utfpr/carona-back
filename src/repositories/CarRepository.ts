@@ -1,12 +1,12 @@
 import { PrismaClient } from "@prisma/client";
 import { ICarRepository } from "../interfaces/ICarRepository";
-import { ICar } from "../interfaces/ICarInterface";
+import { ICar, ICarReturn } from "../interfaces/ICarInterface";
 import { AppError } from "../errors/AppError";
 
 const prisma = new PrismaClient();
 
 export class CarRepository implements ICarRepository{
-    async findMainCar(userId: string): Promise<ICar> {
+    async findMainCar(userId: number): Promise<ICarReturn> {
         const car = await prisma.car.findFirst({
             where: { userId, mainCar:true }
         })
@@ -16,7 +16,7 @@ export class CarRepository implements ICarRepository{
         return car
     }
 
-    async findUserCars(userId: string): Promise<ICar[]> {
+    async findUserCars(userId: number): Promise<ICarReturn[]> {
         const result = await prisma.car.findMany({
             where: {userId, active: true}
         })
@@ -24,7 +24,7 @@ export class CarRepository implements ICarRepository{
         return result
     }
 
-    async findOneCar(id: string): Promise<ICar> {
+    async findOneCar(id: number): Promise<ICarReturn> {
         const result = await prisma.car.findUnique({
             where: {id}
         });
@@ -34,14 +34,14 @@ export class CarRepository implements ICarRepository{
         return result
     }
 
-    async findAll(userId: string): Promise<ICar[]> {
+    async findAll(userId: number): Promise<ICarReturn[]> {
         const result = await prisma.car.findMany({
             where: {userId: userId, active: true}
         })
         return result;
     }
 
-    async insert(props: ICar): Promise<ICar> {
+    async insert(props: ICar): Promise<ICarReturn> {
         const result = await prisma.car.create({
             data:props
         })
@@ -49,7 +49,7 @@ export class CarRepository implements ICarRepository{
         return result;
     }
 
-    async update(props: ICar, id: string): Promise<ICar> {
+    async update(props: ICar, id: number): Promise<ICarReturn> {
         const result = await prisma.car.update({
             where: { id },
             data: props
@@ -58,7 +58,7 @@ export class CarRepository implements ICarRepository{
         return result;
     }
 
-    async delete(id: string): Promise<void> {
+    async delete(id: number): Promise<void> {
         const result = await prisma.car.findUnique({
             where: { id }
         })

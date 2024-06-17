@@ -6,10 +6,12 @@ export class ListCarsController{
     constructor(private carRepo: ICarRepository){}
     async handle(req: Request, res: Response): Promise<Response>{
         const { userId } = req.params;
-        console.log('1')
+        
         const listCarsService = new ListCarService(this.carRepo)
-        console.log('2')
-        const cars = await listCarsService.execute(userId)
+        
+        const Id = parseInt(req.params.id, 10);
+
+        const cars = await listCarsService.execute(Id)
 
         return res.json(cars)
     }
