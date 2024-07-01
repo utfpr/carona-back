@@ -306,6 +306,17 @@ async function createPassengers(){
             active: true
         }
     })
+
+    await prisma.passengers.create({
+        data: {
+            name: 'usuário 1',
+            userId: 1,
+            raceId: 3,
+            active: true
+        }
+    })
+
+
 }
 
 async function main() {
