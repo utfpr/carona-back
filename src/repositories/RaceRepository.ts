@@ -16,7 +16,6 @@ export class RaceRepository implements IRaceRepository{
             }
         })
 
-        console.log(result)
 
         const res = await prisma.passengers.findMany({
             where: { userId: userId, active: true}

@@ -12,6 +12,7 @@ import { IUserRepository } from "../interfaces/IUserRepository";
 import { UserRepository } from "../repositories/UserRepository";
 import { IPassengerRepository } from "../interfaces/IPassengerRepository";
 import { PassengerRepository } from "../repositories/PassengerRepository";
+import { ListActiveRacesController } from "./controllers/race/ListActiveRacesController";
 
 export const raceRoute = Router();
 
@@ -24,7 +25,7 @@ const listRaceController = new ListRacesController(raceRepo)
 const updateRaceController = new UpdateRaceController(raceRepo)
 const deleteRaceController = new DeleteRaceController(raceRepo, userRepo, passengerRepo)
 const historicRaceController = new HistoricRaceController(raceRepo)
-const listActiveRacesController = new ListRacesController(raceRepo)
+const listActiveRacesController = new ListActiveRacesController(raceRepo)
 
 raceRoute.post('/', resolveController(async(req: Request, res: Response) => {
     return await createRaceController.handle(req, res)
