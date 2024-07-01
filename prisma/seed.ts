@@ -266,7 +266,7 @@ async function createPassengers(){
         data: {
             name: 'usuário 3',
             userId: user3.id,
-            raceId: races[0].id,
+            raceId: races[1].id,
             active: true
         }
     })
