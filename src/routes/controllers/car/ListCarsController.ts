@@ -9,9 +9,9 @@ export class ListCarsController{
         
         const listCarsService = new ListCarService(this.carRepo)
         
-        const Id = parseInt(req.params.id, 10);
+        const Id = parseInt(req.params.userId, 10);
 
-        const cars = await listCarsService.execute(Id)
+        const cars = await listCarsService.execute({id: Id})
 
         return res.json(cars)
     }
