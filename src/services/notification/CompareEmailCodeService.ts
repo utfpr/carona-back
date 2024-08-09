@@ -1,3 +1,4 @@
+import { AppError } from "../../errors/AppError";
 import { IConfirmEmailRepository } from "../../interfaces/IConfirmEmailRepository";
 
 export class CompareEmailCodeService{
@@ -6,7 +7,7 @@ export class CompareEmailCodeService{
     async execute(email: string, code: number): Promise<any>{
        const v = this.cmRepo.compare(email, code);
 
-       if(!v) return "código inválido"
+       if(!v) throw new AppError("Código inválido")
 
        return v
     }
