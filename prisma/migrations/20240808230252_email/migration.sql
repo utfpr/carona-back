@@ -54,11 +54,22 @@ CREATE TABLE "passengers" (
     CONSTRAINT "passengers_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "confirmEmail" (
+    "email" VARCHAR(255) NOT NULL,
+    "code" INTEGER NOT NULL,
+
+    CONSTRAINT "confirmEmail_pkey" PRIMARY KEY ("email")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "user_email_key" ON "user"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "user_ra_key" ON "user"("ra");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "confirmEmail_email_key" ON "confirmEmail"("email");
 
 -- AddForeignKey
 ALTER TABLE "car" ADD CONSTRAINT "car_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

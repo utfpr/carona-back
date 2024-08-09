@@ -65,3 +65,8 @@ model passengers{
   raceId Int
   active Boolean @db.Boolean
 }
+
+model confirmEmail{
+  email String @id @unique @db.VarChar(255)
+  code Int @db.Integer
+}

@@ -9,15 +9,18 @@ import { resolveController } from "../adapters/resolverController";
 import { HashRepository } from "../repositories/HashRepository";
 import { IUserRepository } from "../interfaces/IUserRepository";
 import { IHashRepository } from "../interfaces/IHashRepository";
+import { IConfirmEmailRepository } from "../interfaces/IConfirmEmailRepository";
+import { ConfirmEmailRepository } from "../repositories/confirmEmailRepository";
 
 export const userRoute = Router();
 
 const userRepo: IUserRepository = new UserRepository()
 const hashRepo: IHashRepository = new HashRepository()
-const createUserController = new CreateUserController(userRepo)
+const cmRepo: IConfirmEmailRepository = new ConfirmEmailRepository()
+const createUserController = new CreateUserController(userRepo, hashRepo, cmRepo)
 const getUserController = new GetUserController(userRepo)
 const listUsersController = new ListUsersController(userRepo)
-const updateUserController = new UpdateUserController(userRepo)
+const updateUserController = new UpdateUserController(userRepo, hashRepo)
 const deleteUserController = new DeleteUserController(userRepo)
 
  //criação

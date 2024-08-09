@@ -8,9 +8,10 @@ import {
 } from "../../utils/validate";
 import { User } from "../../entities/user";
 import { AppError } from "../../errors/AppError";
+import { IHashRepository } from "../../interfaces/IHashRepository";
 
 export class UpdateUserService {
-  constructor(private userRepo: IUserRepository) {}
+  constructor(private userRepo: IUserRepository, private hashRepo: IHashRepository) {}
   async execute({
     id,
     name,
@@ -20,20 +21,29 @@ export class UpdateUserService {
     confirmEmail,
     confirmPassword, actualPassword
   }: IUserUpdateRequest): Promise<IUser> {
-    const result = await this.userRepo.findOneUser(id);
-
-    if(actualPassword !== result.password) throw new AppError('invalid email or password')
-
-    if(!validateEmail(email)) throw new AppError('invalid email or password')
-
-    if(!validatePassword(password)) throw new AppError('invalid email or password')
-
-    if(confirmEmail && !validateConfirmEmail(email, confirmEmail)) throw new AppError('invalid email or password')
-
-    if(confirmPassword && !validateConfimPassword(password, confirmPassword)) throw new AppError('invalid email or password')
     
 
+    if(!validateEmail(email)) throw new AppError('invalid email or password')
+      console.log("1")
 
+      if(!validatePassword(password)) throw new AppError('invalid email or password')
+        console.log("2")
+
+        if(confirmEmail && !validateConfirmEmail(email, confirmEmail)) throw new AppError('invalid email or password')
+          console.log("3")
+
+          if(confirmPassword && !validateConfimPassword(password, confirmPassword)) throw new AppError('invalid email or password')
+            console.log("4")
+
+    const result = await this.userRepo.findOneUser(id);
+    console.log("5")
+
+    if(actualPassword) this.hashRepo.uncryptographie(actualPassword, result.password)
+
+      console.log("6")
+
+    password = await this.hashRepo.cryptographie(result.password);
+    
     const user = new User(
       {
         name: name || result.name,
