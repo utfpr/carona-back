@@ -62,6 +62,26 @@ CREATE TABLE "confirmEmail" (
     CONSTRAINT "confirmEmail_pkey" PRIMARY KEY ("email")
 );
 
+-- CreateTable
+CREATE TABLE "chat" (
+    "id" SERIAL NOT NULL,
+    "raceId" INTEGER NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "chat_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "message" (
+    "id" SERIAL NOT NULL,
+    "chatId" INTEGER NOT NULL,
+    "content" VARCHAR(1000) NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "message_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "user_email_key" ON "user"("email");
 

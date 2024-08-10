@@ -26,7 +26,7 @@ const prisma = new PrismaClient({
 async function createUsers(){
     await prisma.user.create({
         data: {
-            name: 'usuário 1',
+            name: 'Guilherme Almeida Lopes',
             email: 'usuario1@gmail.com',
             ra: 'a0000001',
             password: 'Abcde1234.',
@@ -37,7 +37,7 @@ async function createUsers(){
 
     await prisma.user.create({
         data: {
-            name: 'usuário 2',
+            name: 'William Wallace Teodoro Rodrigues',
             email: 'usuario2@gmail.com',
             ra: 'a0000002',
             password: 'Abcde1234.',
@@ -48,7 +48,7 @@ async function createUsers(){
 
     await prisma.user.create({
         data: {
-            name: 'usuário 3',
+            name: 'Yuri Ulisses dos Santos Baza',
             email: 'usuario3@gmail.com',
             ra: 'a0000003',
             password: 'Abcde1234.',
@@ -59,7 +59,7 @@ async function createUsers(){
 
     await prisma.user.create({
         data: {
-            name: 'usuário 4',
+            name: 'Paulo Henrique Pereira da Silva',
             email: 'usuario4@gmail.com',
             ra: 'a0000004',
             password: 'Abcde1234.',
@@ -70,7 +70,7 @@ async function createUsers(){
 
     await prisma.user.create({
         data: {
-            name: 'usuário 5',
+            name: 'Pedro Henrique Gradella',
             email: 'usuario5@gmail.com',
             ra: 'a0000005',
             password: 'Abcde1234.',
@@ -81,7 +81,7 @@ async function createUsers(){
 
     await prisma.user.create({
         data: {
-            name: 'usuário 6',
+            name: 'Felipe Augusto Medici de Oliveira',
             email: 'usuario6@gmail.com',
             ra: 'a0000006',
             password: 'Abcde1234.',
@@ -175,7 +175,7 @@ async function createRaces(){
         data: {
             originPoint: 'Estacionamento Superior UTFPR',
             endPoint: "Terminal Urbano Central",
-            timeStart:"2024-07-21T18:57:29.499Z",
+            timeStart:"2024-10-21T18:57:29.499Z",
             seats: 1,
             userId: user1.id,
             carId: user1car.id,
@@ -199,7 +199,7 @@ async function createRaces(){
         data: {
             originPoint: 'Estacionamento Inferior UTFPR',
             endPoint: "Fiorella",
-            timeStart:"2024-07-21T17:57:29.499Z",
+            timeStart:"2024-09-21T17:57:29.499Z",
             seats: 0,
             userId: user2.id,
             carId: user2car.id,
@@ -211,7 +211,7 @@ async function createRaces(){
         data: {
             originPoint: 'Estacionamento Inferior UTFPR',
             endPoint: "Fiorella",
-            timeStart:"2024-04-21T17:57:29.499Z",
+            timeStart:"2024-09-21T17:57:29.499Z",
             seats: 0,
             userId: user2.id,
             carId: user2car.id,
@@ -223,7 +223,7 @@ async function createRaces(){
         data: {
             originPoint: 'Estacionamento Superior UTFPR',
             endPoint: "Terminal Urbano Central",
-            timeStart:"2024-07-21T18:57:29.499Z",
+            timeStart:"2024-11-21T18:57:29.499Z",
             seats: 1,
             userId: user1.id,
             carId: user1car.id,

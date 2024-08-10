@@ -107,6 +107,10 @@ export class RaceRepository implements IRaceRepository{
             data: props
         })
 
+        await prisma.chat.create({
+            data: {raceId: result.id}
+        })
+
         return result
     }
 
