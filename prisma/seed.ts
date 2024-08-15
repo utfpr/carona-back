@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 import { createUUID } from '../src/utils/createUUID'
 import { AppError } from '../src/errors/AppError'
+import { hash } from 'bcrypt'
 
 const prisma = new PrismaClient({
 	log: [
@@ -29,7 +30,7 @@ async function createUsers(){
             name: 'Guilherme Almeida Lopes',
             email: 'usuario1@gmail.com',
             ra: 'a0000001',
-            password: 'Abcde1234.',
+            password: await hash('Abcde1234.', 8),
             active: true,
             haveCar: true
         }
@@ -40,7 +41,7 @@ async function createUsers(){
             name: 'William Wallace Teodoro Rodrigues',
             email: 'usuario2@gmail.com',
             ra: 'a0000002',
-            password: 'Abcde1234.',
+            password: await hash('Abcde1234.', 8),
             active: true,
             haveCar: true
         }
@@ -51,7 +52,7 @@ async function createUsers(){
             name: 'Yuri Ulisses dos Santos Baza',
             email: 'usuario3@gmail.com',
             ra: 'a0000003',
-            password: 'Abcde1234.',
+            password: await hash('Abcde1234.', 8),
             active: true,
             haveCar: false
         }
@@ -62,7 +63,7 @@ async function createUsers(){
             name: 'Paulo Henrique Pereira da Silva',
             email: 'usuario4@gmail.com',
             ra: 'a0000004',
-            password: 'Abcde1234.',
+            password: await hash('Abcde1234.', 8),
             active: true,
             haveCar: false
         }
@@ -73,7 +74,7 @@ async function createUsers(){
             name: 'Pedro Henrique Gradella',
             email: 'usuario5@gmail.com',
             ra: 'a0000005',
-            password: 'Abcde1234.',
+            password: await hash('Abcde1234.', 8),
             active: true,
             haveCar: false
         }
@@ -84,7 +85,7 @@ async function createUsers(){
             name: 'Felipe Augusto Medici de Oliveira',
             email: 'usuario6@gmail.com',
             ra: 'a0000006',
-            password: 'Abcde1234.',
+            password: await hash('Abcde1234.', 8),
             active: true,
             haveCar: false
         }
