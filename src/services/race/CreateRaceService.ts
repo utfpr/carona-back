@@ -2,9 +2,11 @@ import { race } from "../../entities/race";
 import { AppError } from "../../errors/AppError";
 import { IRaceRepository } from "../../interfaces/IRaceRepository";
 import { IRaceCreateRequest } from "../../interfaces/IRaceInterface";
+import { IChatRepository } from "../../interfaces/IChatRepository";
+import { Chat } from "../../entities/chat";
 
 export class CreateRaceService{
-    constructor(private raceRepo: IRaceRepository){}
+    constructor(private raceRepo: IRaceRepository, private chatRepo: IChatRepository){}
     async execute({
         originPoint,
         endPoint,
@@ -23,6 +25,13 @@ export class CreateRaceService{
         active: true
         });
 
-        await this.raceRepo.insert(Race.toJSON())
+        const result = await this.raceRepo.insert(Race.toJSON())
+
+        let chat = new Chat({
+            raceId: result.id,
+            name: result.id.toString() 
+        })
+
+        await this.chatRepo.create(chat)
     }
 }

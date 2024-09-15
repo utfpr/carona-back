@@ -13,13 +13,16 @@ import { UserRepository } from "../repositories/UserRepository";
 import { IPassengerRepository } from "../interfaces/IPassengerRepository";
 import { PassengerRepository } from "../repositories/PassengerRepository";
 import { ListActiveRacesController } from "./controllers/race/ListActiveRacesController";
+import { IChatRepository } from "../interfaces/IChatRepository";
+import { ChatRepository } from "../repositories/ChatRepository";
 
 export const raceRoute = Router();
 
 const raceRepo: IRaceRepository = new RaceRepository()
 const userRepo: IUserRepository = new UserRepository()
+const chatRepo: IChatRepository = new ChatRepository()
 const passengerRepo: IPassengerRepository = new PassengerRepository()
-const createRaceController = new CreateRaceController(raceRepo)
+const createRaceController = new CreateRaceController(raceRepo, chatRepo)
 const getRaceController = new GetRaceController(raceRepo)
 const listRaceController = new ListRacesController(raceRepo)
 const updateRaceController = new UpdateRaceController(raceRepo)
