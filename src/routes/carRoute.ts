@@ -6,7 +6,6 @@ import { ListCarsController } from "./controllers/car/ListCarsController";
 import { UpdateCarController } from "./controllers/car/UpdateCarController";
 import { DeleteCarController } from "./controllers/car/DeleteCarController";
 import { resolveController } from "../adapters/resolverController";
-import { ICar } from "../interfaces/ICarInterface";
 import { ICarRepository } from "../interfaces/ICarRepository";
 import { IUserRepository } from "../interfaces/IUserRepository";
 import { UserRepository } from "../repositories/UserRepository";
