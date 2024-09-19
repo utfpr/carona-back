@@ -1,5 +1,4 @@
 import { Car } from "../../entities/car";
-import { AppError } from "../../errors/AppError";
 import { ICarRepository } from "../../interfaces/ICarRepository";
 import { ICarCreateRequest } from "../../interfaces/ICarInterface";
 import { IUserRepository } from "../../interfaces/IUserRepository";
