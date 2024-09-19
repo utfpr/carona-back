@@ -69,10 +69,7 @@ export class DeleteRaceNotificationService{
               }
 
               i++;
-            }
-
-            
+            } 
         }
     }
-    
 }

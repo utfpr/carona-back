@@ -56,7 +56,5 @@ export class PassengerExitNotificationService{
                 console.log("Email enviado: " + info.response);
             }
         })
- 
-    }
-    
+    }   
 }

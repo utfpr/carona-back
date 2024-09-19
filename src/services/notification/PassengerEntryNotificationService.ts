@@ -1,6 +1,5 @@
 import * as nodemailer from "nodemailer";
 import { IUserRepository } from "../../interfaces/IUserRepository";
-import { ICarRepository } from "../../interfaces/ICarRepository";
 import { IPassengerRepository } from "../../interfaces/IPassengerRepository";
 import { IRaceRepository } from "../../interfaces/IRaceRepository";
 import config from "../../config/config";
@@ -45,5 +44,4 @@ export class PassengerEntryNotificationService{
             }
         })
     }
-    
 }

@@ -1,6 +1,5 @@
 import { IPassengerRepository } from "../../interfaces/IPassengerRepository";
 import { IPassengerDeleteRequest } from "../../interfaces/IPassengersInterface";
-import { IRace } from "../../interfaces/IRaceInterface";
 import { IRaceRepository } from "../../interfaces/IRaceRepository";
 import { IUserRepository } from "../../interfaces/IUserRepository";
 import { PassengerExitNotificationService } from "../notification/PassengerExitNotificationService";
