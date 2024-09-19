@@ -1,5 +1,4 @@
 import { race } from "../../entities/race";
-import { AppError } from "../../errors/AppError";
 import { IRaceRepository } from "../../interfaces/IRaceRepository";
 import { IRaceCreateRequest } from "../../interfaces/IRaceInterface";
 import { IChatRepository } from "../../interfaces/IChatRepository";
