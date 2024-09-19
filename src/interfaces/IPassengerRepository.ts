@@ -1,5 +1,5 @@
-import { IPassenger, IPassengerCreateRequest, IPassengerReturn } from "./IPassengersInterface";
-import { IRace } from "./IRaceInterface";
+import { IPassengerCreateRequest, IPassengerReturn } from "./IPassengersInterface";
+
 
 export interface IPassengerRepository{
     insert(props: IPassengerCreateRequest): Promise<IPassengerReturn>

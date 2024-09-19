@@ -51,5 +51,4 @@ import { AppError } from "../errors/AppError";
 
         return result
      }
-
  }
