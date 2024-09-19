@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express"
+import express from "express"
 import { mainRouter } from "./mainRoute"
 import { userRoute } from "./userRoute";
 import { carRoute } from "./carRoute";

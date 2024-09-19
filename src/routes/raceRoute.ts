@@ -57,5 +57,3 @@ raceRoute.put('/:id', resolveController(async(req: Request, res: Response) => {
 raceRoute.delete('/:id', resolveController(async(req: Request, res: Response) => {
     return await deleteRaceController.handle(req, res)
 }))
-
-
