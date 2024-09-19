@@ -8,4 +8,3 @@ export interface IPassengerRepository{
     listRacePassengers(raceId: number): Promise<IPassengerReturn[]>
     listUserRaces(userId: number): Promise<IPassengerReturn[]>
 }
-
