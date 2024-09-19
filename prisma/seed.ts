@@ -27,7 +27,7 @@ const prisma = new PrismaClient({
 async function createUsers(){
     await prisma.user.create({
         data: {
-            name: 'Guilherme Almeida Lopes',
+            name: 'Usuário 1',
             email: 'usuario1@gmail.com',
             ra: 'a0000001',
             password: await hash('Abcde1234.', 8),
@@ -38,7 +38,7 @@ async function createUsers(){
 
     await prisma.user.create({
         data: {
-            name: 'William Wallace Teodoro Rodrigues',
+            name: 'Usuário 1',
             email: 'usuario2@gmail.com',
             ra: 'a0000002',
             password: await hash('Abcde1234.', 8),
@@ -49,7 +49,7 @@ async function createUsers(){
 
     await prisma.user.create({
         data: {
-            name: 'Yuri Ulisses dos Santos Baza',
+            name: 'Usuário 3',
             email: 'usuario3@gmail.com',
             ra: 'a0000003',
             password: await hash('Abcde1234.', 8),
@@ -60,7 +60,7 @@ async function createUsers(){
 
     await prisma.user.create({
         data: {
-            name: 'Paulo Henrique Pereira da Silva',
+            name: 'Usuário 4',
             email: 'usuario4@gmail.com',
             ra: 'a0000004',
             password: await hash('Abcde1234.', 8),
@@ -71,7 +71,7 @@ async function createUsers(){
 
     await prisma.user.create({
         data: {
-            name: 'Pedro Henrique Gradella',
+            name: 'Usuário 5',
             email: 'usuario5@gmail.com',
             ra: 'a0000005',
             password: await hash('Abcde1234.', 8),
@@ -82,7 +82,7 @@ async function createUsers(){
 
     await prisma.user.create({
         data: {
-            name: 'Felipe Augusto Medici de Oliveira',
+            name: 'Usuário 6',
             email: 'usuario6@gmail.com',
             ra: 'a0000006',
             password: await hash('Abcde1234.', 8),
@@ -184,6 +184,13 @@ async function createRaces(){
         }
     })
 
+    await prisma.chat.create({
+        data: {
+            raceId: 1,
+            name: "UTF ao terminal"
+        }
+    })
+
     await prisma.race.create({
         data: {
             originPoint: 'Estacionamento Superior UTFPR',
@@ -196,15 +203,10 @@ async function createRaces(){
         }
     })
 
-    await prisma.race.create({
+    await prisma.chat.create({
         data: {
-            originPoint: 'Estacionamento Inferior UTFPR',
-            endPoint: "Fiorella",
-            timeStart:"2024-09-21T17:57:29.499Z",
-            seats: 0,
-            userId: user2.id,
-            carId: user2car.id,
-            active: true
+            raceId: 2,
+            name: "UTF ao terminal"
         }
     })
 
@@ -217,6 +219,32 @@ async function createRaces(){
             userId: user2.id,
             carId: user2car.id,
             active: true
+        }
+    })
+
+    await prisma.chat.create({
+        data: {
+            raceId: 3,
+            name: "UTF à Fiorella"
+        }
+    })
+
+    await prisma.race.create({
+        data: {
+            originPoint: 'Estacionamento Inferior UTFPR',
+            endPoint: "Fiorella",
+            timeStart:"2024-09-21T17:57:29.499Z",
+            seats: 0,
+            userId: user2.id,
+            carId: user2car.id,
+            active: true
+        }
+    })
+
+    await prisma.chat.create({
+        data: {
+            raceId: 4,
+            name: "UTF à Fiorella"
         }
     })
 
@@ -229,6 +257,13 @@ async function createRaces(){
             userId: user1.id,
             carId: user1car.id,
             active: false
+        }
+    })
+
+    await prisma.chat.create({
+        data: {
+            raceId: 5,
+            name: "UTF ao Terminal"
         }
     })
 }
