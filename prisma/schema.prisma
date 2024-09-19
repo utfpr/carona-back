@@ -12,35 +12,78 @@ datasource db {
 
 
 model user{
-  id String @id @db.Uuid
+  id Int @id @default(autoincrement())
   name String @db.VarChar(255)
-  email String @db.VarChar(255)
+  email String @unique @db.VarChar(255)
+  ra String @unique @db.VarChar(11)
   password String @db.VarChar(255)
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+  haveCar Boolean @db.Boolean
+  active Boolean @db.Boolean
   car car[]
   race race[]
-
+  passengers passengers[]
 }
 
 model car{
-  id String @id @db.Uuid
-  plate String @db.Char(7)
+  id Int @id @default(autoincrement())
+  plate String @db.VarChar(255)
   description String @db.VarChar(255)
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
+  mainCar Boolean @db.Boolean
   owner user @relation(fields: [userId], references: [id]) 
-  userId String @db.Uuid
+  userId Int
+  active Boolean @db.Boolean
   race race[]
+  
 }
 
 model race{
-  id String @id @db.Uuid
+  id Int @id @default(autoincrement())
   originPoint String @db.VarChar(255)
   endPoint String @db.VarChar(255)
-  timeStart DateTime @default(now())
+  timeStart DateTime @db.Timestamptz()
   driver user @relation(fields: [userId], references: [id]) 
-  userId String @db.Uuid
+  userId Int
   raceCar car @relation(fields: [carId], references: [id])
-  carId String @db.Uuid
+  carId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) 
+  seats Int @db.Integer
+  active Boolean @db.Boolean
+  passengers passengers[]
+}
+
+model passengers{
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(255)
+  users user @relation(fields: [userId], references: [id])
+  userId Int
+  race race @relation(fields: [raceId], references: [id], onDelete: Cascade)
+  raceId Int
+  active Boolean @db.Boolean
+}
+
+model confirmEmail{
+  email String @id @unique @db.VarChar(255)
+  code Int @db.Integer
+}
+
+model chat{
+  id Int @id @default(autoincrement())
+  raceId Int
+  name String @db.VarChar(255)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) 
+}
+
+model message{
+  id Int @id @default(autoincrement())
+  chatId Int 
+  author String @db.VarChar(255)
+  authorId Int
+  content String @db.VarChar(1000)
+  createdAt DateTime @default(now())
 }

@@ -1,0 +1,49 @@
+POST http://localhost:3333/user
+Content-Type: application/json
+
+{
+    "name": "Daniel",
+    "email": "williamwtr@outlook.com",
+    "password": "NarutoStorm5!",
+    "ra": "a0000003",
+    "confirmEmail": "williamwtr@outlook.com",
+    "confirmPassword": "NarutoStorm5!"
+}
+
+###Update
+PUT http://localhost:3333/user/5436acf6-d4d3-4f28-bde4-3d97d3d64a28
+Content-Type: application/json
+
+{
+    "name": "Fizzuelli",
+    "email": "ontema",
+    "password": "amanhã"
+}
+
+###Delete
+DELETE http://localhost:3333/user/a937ad56-1e25-4902-b516-9c6ee844b5e2s
+
+###Get all
+GET http://localhost:3333/user
+
+### Get User
+GET http://localhost:3333/user/becf790f-4ccb-4c0a-affe-37da8157984e
+
+
+### Auth
+POST http://localhost:3333/auth
+Content-Type: application/json
+
+{
+    "email": "ricardo@silva.com.br",
+    "password": "NarutoStorm5!"
+}
+
+###Ra auth
+POST http://localhost:3333/auth/ra
+Content-Type: application/json
+
+{
+    "ra": "a2459808",
+    "password": "NarutoStorm5!"
+}

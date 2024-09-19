@@ -1,0 +1,38 @@
+###Create
+POST http://localhost:3333/race
+Content-Type: application/json
+
+{
+    "originPoint": "Casa da vovó",
+    "endPoint": "Igreja",
+    "timeStart":"2024-07-21T18:57:29.499Z",
+    "seats": 10,
+    "userId": "f15a866c-f46f-4d4e-a317-67aacf084e51",
+    "carId": "a1c6eb92-73fd-4521-a303-6a3d721222dd"
+}
+
+###Update
+PUT http://localhost:3333/race/40b44593-ead1-40c9-91fd-2b9937c198df
+Content-Type: application/json
+
+{
+    "originPoint": "oga1 maguila1",
+    "endPoint": "fiorella2",
+    "timeStart": "2024-04-21T21:20:55.831Z",
+    "seats": 5
+}
+
+###Delete
+DELETE http://localhost:3333/race/40b44593-ead1-40c9-91fd-2b9937c198df
+
+###Get
+GET http://localhost:3333/race/
+
+###Get all
+GET http://localhost:3333/race
+
+###Historic
+GET http://localhost:3333/race/historic/a2d676d6-d213-4a3f-801d-060ab214b126
+
+###ListActiveRaces
+GET http://localhost:3333/race/active/
