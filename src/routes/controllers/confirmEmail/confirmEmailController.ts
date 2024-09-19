@@ -1,6 +1,5 @@
 import { Request, Response} from "express"
 import { IConfirmEmailRepository } from "../../../interfaces/IConfirmEmailRepository";
-import { ConfirmEmailService } from "../../../services/notification/ConfirmEmailService";
 import { CompareEmailCodeService } from "../../../services/notification/CompareEmailCodeService";
 
 export class ConfirmEmailController{

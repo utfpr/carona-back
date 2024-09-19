@@ -1,6 +1,4 @@
 import { Request, Response } from "express";
-import { IRace } from "../../../interfaces/IRaceInterface";
-import { IHashRepository } from "../../../interfaces/IHashRepository";
 import { CreateRaceService } from "../../../services/race/CreateRaceService";
 import { IRaceRepository } from "../../../interfaces/IRaceRepository";
 import { IChatRepository } from "../../../interfaces/IChatRepository";
