@@ -85,7 +85,4 @@ export class UserRepository implements IUserRepository{
             where: { id }
         })
     }
-
-    
-    
 }

@@ -2,7 +2,6 @@ import { PrismaClient } from "@prisma/client";
 import { IPassengerRepository } from "../interfaces/IPassengerRepository";
 import { IPassenger, IPassengerCreateRequest, IPassengerReturn } from "../interfaces/IPassengersInterface";
 import { AppError } from "../errors/AppError";
-import { IRace } from "../interfaces/IRaceInterface";
 
 const prisma = new PrismaClient();
 export class PassengerRepository implements IPassengerRepository{

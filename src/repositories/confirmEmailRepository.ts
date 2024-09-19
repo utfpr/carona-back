@@ -28,5 +28,4 @@ export class ConfirmEmailRepository implements IConfirmEmailRepository{
             where: {email}
         })
     }
-    
 }

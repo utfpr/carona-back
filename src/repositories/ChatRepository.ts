@@ -34,5 +34,4 @@ export class ChatRepository implements IChatRepository{
 
         return result
     }
-    
 }

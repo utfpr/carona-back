@@ -1,8 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { IRaceRepository } from "../interfaces/IRaceRepository";
-import { IRace, IRaceReturn, IRaceUpdateRequest } from "../interfaces/IRaceInterface";
-import { race } from "../entities/race";
-import { futureRace, listFutureRaces, listPastRaces, ordenate } from "../utils/futureRace";
+import { IRace, IRaceReturn } from "../interfaces/IRaceInterface";
+import { listFutureRaces, ordenate } from "../utils/futureRace";
 import { AppError } from "../errors/AppError";
 
 const prisma = new PrismaClient();
