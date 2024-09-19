@@ -1,4 +1,3 @@
-import { IMessage } from "../../../interfaces/IMessageInterface";
 import { IMesageRepository } from "../../../interfaces/IMessageRepository";
 import { CreateMessageService } from "../../../services/message/CreateMessageService";
 import { Request, Response } from "express";

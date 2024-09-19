@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { IHashRepository } from "../../../interfaces/IHashRepository";
 import { IJWTRepository } from "../../../interfaces/IJWTRepository";
 import { IUserRepository } from "../../../interfaces/IUserRepository";
-import { AuthenticateUserService } from "../../../services/user/AuthenticateUserService";
 import { AuthenticateUserByRaService } from "../../../services/user/AuthenticateUserByRaService";
 
 

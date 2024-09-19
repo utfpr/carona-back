@@ -1,7 +1,6 @@
 import { Request, Response } from "express"
 import { ICarRepository } from "../../../interfaces/ICarRepository"
 import { DeleteCarService } from "../../../services/car/DeleteCarService"
-import { ICar } from "../../../interfaces/ICarInterface"
 import { IUserRepository } from "../../../interfaces/IUserRepository";
 
 export class DeleteCarController{

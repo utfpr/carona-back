@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { ICarRepository } from "../../../interfaces/ICarRepository";
 import { ICar } from "../../../interfaces/ICarInterface";
 import { UpdateCarService } from "../../../services/car/UpdateCarService";
-import { constructFrom } from "date-fns";
 
 export class UpdateCarController{
     constructor(private carRepo: ICarRepository){}
