@@ -45,4 +45,3 @@ export interface ICarUpdateRequest{
 export interface ICarDeleteRequest{
     id:number
 }
-
