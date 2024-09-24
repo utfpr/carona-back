@@ -43,6 +43,6 @@ Para a visualização e execução de testes é necessário a utilização do In
 O projeto trata-se de um software livre.
 
 ## Autores
-  - William Rodrigues - williamwallace@alunos.utfpr.edu.br
+  - William Wallace Teodoro Rodrigues - williamwallace@alunos.utfpr.edu.br
   - Guilherme Almeida Lopes - guilhermealmeidalopes@alunos.utfpr.edu.br
   - Yuri Ulisses dos Santos Baza - yuribaza@alunos.utfpr.edu.br
