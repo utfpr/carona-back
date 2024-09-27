@@ -1,5 +1,4 @@
 import { race } from "@prisma/client";
-import { isFuture, isPast } from "date-fns";
 
 export function futureRace(timestart: Date){
 

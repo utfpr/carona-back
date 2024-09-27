@@ -180,7 +180,8 @@ async function createRaces(){
             seats: 1,
             userId: user1.id,
             carId: user1car.id,
-            active: true
+            active: true,
+            drivername: user1.name
         }
     })
 
@@ -199,7 +200,8 @@ async function createRaces(){
             seats: 1,
             userId: user1.id,
             carId: user1car.id,
-            active: true
+            active: true,
+            drivername: user1.name
         }
     })
 
@@ -218,7 +220,8 @@ async function createRaces(){
             seats: 0,
             userId: user2.id,
             carId: user2car.id,
-            active: true
+            active: true,
+            drivername:user2.name
         }
     })
 
@@ -237,7 +240,8 @@ async function createRaces(){
             seats: 0,
             userId: user2.id,
             carId: user2car.id,
-            active: true
+            active: true,
+            drivername: user2.name
         }
     })
 
@@ -256,7 +260,8 @@ async function createRaces(){
             seats: 1,
             userId: user1.id,
             carId: user1car.id,
-            active: false
+            active: false,
+            drivername: user1.name
         }
     })
 

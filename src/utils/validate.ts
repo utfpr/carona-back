@@ -1,6 +1,3 @@
-import { isFuture } from 'date-fns'
-
-
 export function validateEmail(email:string): boolean{
     if (email.indexOf('.') === -1 || email.indexOf('@') === -1){
         return false
