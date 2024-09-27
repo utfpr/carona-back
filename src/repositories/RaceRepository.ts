@@ -102,8 +102,15 @@ export class RaceRepository implements IRaceRepository{
     }
 
     async insert(props: IRace): Promise<IRaceReturn> {
+
+        const driver = await prisma.user.findUnique({
+            where: {id: props.userId}
+        })
+
+        if(!driver) throw new AppError("User not found")
+
         const result = await prisma.race.create({
-            data: props
+            data: {originPoint: props.originPoint, endPoint: props.endPoint, timeStart: props.timeStart, userId: props.userId, carId: props.carId, seats: props.seats, active: props.active, drivername: driver.name}, 
         })
 
         return result
