@@ -21,6 +21,6 @@ chatRoute.put('/:id', resolveController(async(req: Request, res: Response) => {
     return await updateChatController.handle(req, res)
 }))
 
-chatRoute.put('get/:id', resolveController(async(req: Request, res: Response) => {
+chatRoute.get(':id', resolveController(async(req: Request, res: Response) => {
     return await getChatController.handle(req, res)
 }))
