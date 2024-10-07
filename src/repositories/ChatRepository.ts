@@ -6,6 +6,16 @@ import { AppError } from "../errors/AppError";
 const prisma = new PrismaClient();
 
 export class ChatRepository implements IChatRepository{
+    async get(id: number): Promise<IChat> {
+        const result = await prisma.chat.findUnique({
+            where: {id}
+        })
+
+        if(!result)throw new Error("User not found");
+
+        return result
+    }
+    
     async findAll(): Promise<IChat[]> {
         const result = await prisma.chat.findMany();
 
