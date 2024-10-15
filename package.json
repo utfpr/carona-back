@@ -13,7 +13,7 @@
     "seed": "ts-node-dev ./prisma/seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "^5.21.0",
+    "@prisma/client": "^5.4.2",
     "@types/bcrypt": "^5.0.2",
     "@types/jsonwebtoken": "^9.0.5",
     "@types/nodemailer": "^6.4.15",

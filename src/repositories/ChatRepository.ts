@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { IChatRepository } from "../interfaces/IChatRepository";
-import { IChat} from "../interfaces/IChatInterface";
+import { IChat, IChatReturn } from "../interfaces/IChatInterface";
 import { AppError } from "../errors/AppError";
 
 const prisma = new PrismaClient();

@@ -1,4 +1,6 @@
 import { IRace } from "../interfaces/IRaceInterface"
+import { createUUID } from "../utils/createUUID"
+
 
 export class race{
   originPoint: IRace['originPoint']

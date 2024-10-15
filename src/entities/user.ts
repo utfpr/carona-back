@@ -1,4 +1,5 @@
 import { IUser } from "../interfaces/IUserInterface";
+import { createUUID } from "../utils/createUUID";
 
 export class User{
     name: IUser['name']
