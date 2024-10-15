@@ -12,7 +12,7 @@ import { AppError } from "../errors/AppError";
         const authorData = await prisma.user.findUnique({
             where: {id: props.authorId}
         })
-        
+        console.log("cheguei aq")
         let authorName;
         if(authorData) authorName = authorData.name;
 
@@ -25,7 +25,7 @@ import { AppError } from "../errors/AppError";
 
      async get(id: number): Promise<IMessage> {
 
-        
+        console.log(id)
          const result = await prisma.message.findUnique({
             where: {id}
          })

@@ -16,9 +16,9 @@ export class ConfirmEmailRepository implements IConfirmEmailRepository{
             where: { email }
         })
 
-        if(!result) throw new AppError("User not found")
+        if(!result) throw new AppError("usuário não encontrado")
 
-        if(code !== result.code) throw new AppError("Invalid Code")
+        if(code !== result.code) throw new AppError("código inválido")
 
         return true
     }

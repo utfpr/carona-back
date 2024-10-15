@@ -1,4 +1,4 @@
-import { IChat } from "./IChatInterface";
+import { IChat, IChatReturn } from "./IChatInterface";
 
 export interface IChatRepository{
     findAll(): Promise<IChat[]>
