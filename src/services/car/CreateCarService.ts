@@ -2,7 +2,6 @@ import { Car } from "../../entities/car";
 import { ICarRepository } from "../../interfaces/ICarRepository";
 import { ICarCreateRequest } from "../../interfaces/ICarInterface";
 import { IUserRepository } from "../../interfaces/IUserRepository";
-import { user } from "@prisma/client";
 import { IUser } from "../../interfaces/IUserInterface";
 
 export class CreateCarService{
@@ -12,9 +11,9 @@ export class CreateCarService{
         const car = new Car({plate, description, userId, mainCar: false, active: true});
 
         let user = await this.userRepo.findOneUser(userId)
-        console.log('cc1')
+        
         if(user.haveCar === false){
-            console.log('primeiro carro')
+            
             user.haveCar = true;
             car.mainCar = true;
             await this.carRepo.insert(car.toJSON())

@@ -13,9 +13,9 @@ export class CreatePassengerController{
 
         const RaceId = parseInt(req.params.raceId, 10);
 
-        console.log(userId, "batata", raceId)
+       
         const createPassengerService = new CreatePassengerService(this.passengerRepo, this.raceRepo, this.userRepo)
-        console.log("1")
+        
         await createPassengerService.execute({ userId: UserId, raceId: RaceId})
 
         return res.status(201).send()

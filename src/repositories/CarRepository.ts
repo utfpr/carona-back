@@ -29,7 +29,7 @@ export class CarRepository implements ICarRepository{
             where: {id}
         });
 
-        if(!result || result.active === false) throw new AppError("car not found");
+        if(!result || result.active === false) throw new AppError("Car not found");
         
         return result
     }

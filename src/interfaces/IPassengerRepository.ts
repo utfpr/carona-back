@@ -1,6 +1,5 @@
 import { IPassengerCreateRequest, IPassengerReturn } from "./IPassengersInterface";
 
-
 export interface IPassengerRepository{
     insert(props: IPassengerCreateRequest): Promise<IPassengerReturn>
     delete(id: number): Promise<void>

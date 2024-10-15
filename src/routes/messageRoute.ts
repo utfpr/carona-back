@@ -4,7 +4,6 @@ import { MessageRepository } from "../repositories/MessageRepository";
 import { CreateMessageController } from "./controllers/message/CreateMessageController";
 import { GetMessageController } from "./controllers/message/GetMessageController";
 import { GetMessageByChatController } from "./controllers/message/GetMessageByChatController";
-import { GetMessageByAuthorService } from "../services/message/GetMessageByAuthorService";
 import { resolveController } from "../adapters/resolverController";
 import { GetMessageByAuthorController } from "./controllers/message/GetMessageByAuthorController";
 

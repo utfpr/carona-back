@@ -1,5 +1,4 @@
 import { ICar } from "../interfaces/ICarInterface"
-import { createUUID } from "../utils/createUUID"
 
 export class Car{
     plate: ICar['plate']

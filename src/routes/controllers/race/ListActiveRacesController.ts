@@ -9,8 +9,6 @@ export class ListActiveRacesController{
 
         const Id = parseInt(req.params.id, 10);
 
-        console.log(id)
-
         const getRaceService = new ListActiveRaceService(this.raceRepo)
         const result = await getRaceService.execute({ id: Id })
 

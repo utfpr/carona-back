@@ -1,5 +1,4 @@
 import { PrismaClient } from '@prisma/client'
-import { createUUID } from '../src/utils/createUUID'
 import { AppError } from '../src/errors/AppError'
 import { hash } from 'bcrypt'
 
