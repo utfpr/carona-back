@@ -8,7 +8,6 @@ export class GetMessageController{
     async handle(req: Request, res: Response): Promise<Response>{
 
     const { id } = req.params;
-        console.log("cheguei aq", id)
     const Id = parseInt(id, 10);
 
     const getMessageService = new GetMessageService(this.messageRepo)

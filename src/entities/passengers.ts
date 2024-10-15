@@ -1,4 +1,3 @@
-import { createUUID } from "../utils/createUUID";
 import { IPassenger } from "../interfaces/IPassengersInterface";
 
 export class Passenger{

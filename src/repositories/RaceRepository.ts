@@ -20,8 +20,6 @@ export class RaceRepository implements IRaceRepository{
             where: { userId: userId, active: true}
         })
 
-        console.log(res)
-
         let i = 0;
 
         while(i < res.length){
@@ -32,7 +30,6 @@ export class RaceRepository implements IRaceRepository{
                 }
             })
 
-            console.log(race)
 
             if(race) result.push(race)
 
@@ -117,7 +114,6 @@ export class RaceRepository implements IRaceRepository{
     }
 
     async update(props: IRace, id: number): Promise<IRaceReturn> {
-        console.log(props.seats)
         const vaga = props.seats;
         const result = await prisma.race.update({
             where: { id },

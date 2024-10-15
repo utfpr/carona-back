@@ -1,4 +1,5 @@
-import { race } from "@prisma/client";
+import { race } from "../entities/race"
+
 
 export function futureRace(timestart: Date){
 

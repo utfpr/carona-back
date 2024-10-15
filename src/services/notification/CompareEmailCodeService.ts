@@ -7,7 +7,7 @@ export class CompareEmailCodeService{
     async execute(email: string, code: number): Promise<any>{
        const v = this.cmRepo.compare(email, code);
 
-       if(!v) throw new AppError("Código inválido")
+       if(!v) throw new AppError("Invalid code")
 
        return v
     }

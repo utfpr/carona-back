@@ -11,9 +11,9 @@ export class UpdateRaceController{
         const Id = parseInt(req.params.id, 10);
         
         const { originPoint, endPoint, timeStart, seats}: IRace = req.body;
-        console.log("controller 1")
+        
         const updateRaceService = new UpdateRaceService(this.raceRepo)
-        console.log("controller")
+        
         const result = await updateRaceService.execute({
             id: Id,
             originPoint,
