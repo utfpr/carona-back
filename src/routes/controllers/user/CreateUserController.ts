@@ -19,13 +19,13 @@ export class CreateUserController {
         confirmEmail,
         confirmPassword
       } = req.body;
-      
+      console.log("1")
       const createUserService = new CreateUserService(
         this.userRepo, this.hashRepo,
         this.cmRepo
         
       );
-      
+      console.log("2")
       const user = await createUserService.execute({
         name,
         email,
@@ -34,7 +34,7 @@ export class CreateUserController {
         confirmEmail,
         confirmPassword
       });
-     
+      console.log("3")
       return res.status(201).json(user);
     }
   }

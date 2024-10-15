@@ -23,6 +23,7 @@ export class UpdateRaceService{
             active: true
         });
 
+        console.log("q")
         await this.raceRepo.update(Race.toJSON(), id);
     }
 }
