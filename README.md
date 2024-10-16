@@ -30,26 +30,35 @@ Além disso, notificações são enviadas para o email dos usuários em situaç�
  
 Clone o repositório com o seguinte comando:
 
-       git clone https://github.com/utfpr/carona-back.git
-
+```bash
+git clone https://github.com/utfpr/carona-back.git
+```
 
 Na sequência, acesse o diretório do repositório clonado e instale o Typescript com o seguinte comando:
-  
-       npm install -g typescript
+
+```bash
+npm install -g typescript
+```
 
 Ainda no mesmo diretório, instale as dependências do projeto, com o seguinte comando:
 
-       npm install
+```bash
+npm install
+```
 
 Após a instalação das dependências, crie a imagem no docker. Para isso, deve-se utilizar o comando:
 
-       docker run -d --name carona -p 5433:5432 -e POSTGRES_PASSWORD=123456 postgres:13.5
+```bash
+docker run -d --name carona -p 5433:5432 -e POSTGRES_PASSWORD=123456 postgres:13.5
+```
 
 Na sequência é necessário criar um arquivo `.env`. O modelo pode ser encontrado no arquivo `.env.example` localizado na raiz do projeto.
 
 Se você rodar o sistema em modo local (servidores backend e frontend na mesma máquina), apenas crie uma cópia do arquivo `.env.example` para `.env`
 
-       cp .env.example .env
+```bash
+cp .env.example .env
+```
 
 Caso contrário, é necessário inserir a porta utilizada para a API, a url do banco de dados, uma chave para assinar e verificar os JSON Web Tokens.
 
@@ -57,17 +66,23 @@ Opcionalmente, caso deseje o funcionamento das notificações, um email e senha 
 
 Com o .env devidamente configurado, é necessário executar o comando para criar o modelo do banco de dados:
 
-       npx prisma migrate dev
+```bash
+npx prisma migrate dev
+```
 
 Você será solicitado a dar um nome para a nova migration. Escolha um nome que lhe for conveniente, como por exemplo, `carona`.
 
 Opcionalmente, podemos povoar o banco de dados com dados sintéticos:
 
-       npm run seed
+```bash
+npm run seed
+```
 
 Em seguida, use o seguinte comando para inicializar a aplicação. 
 
-       npm run start:dev
+```bash
+npm run start:dev
+```
 
 Os dados sintéticos do banco possuem seis usuários (numerados de 1 a 6) com a mesma senha para acesso ao sistema, no seguinte padrão:
 
