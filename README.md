@@ -88,11 +88,12 @@ Os dados sintéticos do banco possuem seis usuários (numerados de 1 a 6) com a 
 
 `Nome: Usuário 1`
 `Email: usuario1@gmail.com`
+`RA: a0000001`
 `Senha: Abcde1234.`
 
 Para fazer login, escolha um usário utilize o email e a senha provida para acessar o sistema pelo frontend.
 
-            email: 'usuario[número de usuário]@gmail.com',
+            ra: 'a0000001',
             password: 'Abcde1234.'
 
 
