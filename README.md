@@ -26,17 +26,43 @@ Além disso, notificações são enviadas para o email dos usuários em situaç�
 - Autores
 
 ## Instalação
-Para executar o aplicativo é necessária a instalação do typescript com o comando "npm install -g typescript",
-e em seguida, é necessparia a instalação do Docker.
-No terminal, é importante executar o comando "yarn" para instalar todas as dependências do projeto, e o comando "create:db" para criar a imagem no docker. 
-Para iniciar a aplicação, é necessário utilizar o comando "yarn start:dev". 
-O comando "yarn:seed" pode ser utilizado para povoar o banco de dados.
+  Primeiramente, é necessária a execução do seguinte comando para a instalação do typescript:
+  
+  ` npm install -g typescript `
+  
+  Após isso, é necessário instalar as dependências, com o seguinte comando:
 
-## Uso
-Os exemplos de como utilizar o aplicativo, com testes no Insomnia, podem ser encontrados nesse link:
-https://drive.google.com/file/d/1xG6dWs-pI37fUA0NdC0INvRZTIlN-Hc7/view?usp=sharing
+    ` npm install`
 
-Para a visualização e execução de testes é necessário a utilização do Insomina.
+  Com as dependências instaladas, é importante criar a imagem no docker. Para isso, deve-se utilizar o comando
+
+  `docker run -d --name carona -p 5433:5432 -e POSTGRES_PASSWORD=123456 postgres:13.5`
+
+  Com isso, a aplicação está devidamente configurada. Então, é necessário criar um documento .env. O modelo pode ser encontrado no arquivo 
+
+  `.env.example`
+
+  Nele, serão necessárias as inserções da porta utilizada para a API, a url do banco de dados, uma chave para assinar e verificar os JSON Web Tokens, e um email e senha para APP de onde serão enviadas as notificações do aplicativo. 
+  Neste [link](https://www.bing.com/ck/a?!&&p=2f2547c968ceb018JmltdHM9MTcyODk1MDQwMCZpZ3VpZD0yMzg2NDM5Ni00NDlhLTYxM2QtMTNjMC01NzE1NDVlMzYwYmImaW5zaWQ9NTQ4NQ&ptn=3&ver=2&hsh=3&fclid=23864396-449a-613d-13c0-571545e360bb&psq=como+cadastrar+uma+senha+de+app+em+um+email&u=a1aHR0cHM6Ly93d3cucG9ydGFsaW5zaWdodHMuY29tLmJyL3Blcmd1bnRhcy1mcmVxdWVudGVzL2NvbW8tY3JpYXItc2VuaGEtZGUtYXBwLW5vLWdtYWlsIzp-OnRleHQ9QWNlc3NlJTIwc3VhJTIwQ29udGElMjBkbyUyMEdvb2dsZS4lMjBTZWxlY2lvbmUlMjBTZWd1cmFuJUMzJUE3YS4lMjBFbSxvbmRlJTIwdXNhciVDMyVBMSUyMGElMjBzZW5oYSUyMGRlJTIwYXBwLiUyMFNlbGVjaW9uZSUyMEdlcmFyLg&ntb=1) você pode encontrar mais informações de como cadastrar uma senha de aplicativo no email.
+
+  Com o .env devidamente configurado, pode-se utilizar o comando 
+
+  `ts-node-dev ./prisma/seed.ts`
+
+  para povoar o banco de dados, seguido do comando
+
+  `ts-node-dev ./src/main.ts`
+
+  para inicializar a aplicação. 
+
+  Caso não queira povoar o banco, pode-se utilizar diretamente o segundo comando. 
+
+  Caso povoe o banco e deseja acessar algum dos usuários já criados, as informações de login desses usuários são:
+
+            email: 'usuario[número de usuário]@gmail.com',
+            password: 'Abcde1234.'
+
+  No total, 6 usuários são cadastrados por esse comando, e cada um possui como diferença no login apenas o número(de 1 a 6) no espaço [número do usuário] no email.
     
 
 ## Licença
