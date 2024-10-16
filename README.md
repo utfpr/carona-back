@@ -28,7 +28,7 @@ Além disso, notificações são enviadas para o email dos usuários em situaç�
 ## Instalação
   Primeiramente, é necessária a execução do seguinte comando para a instalação do typescript:
   
-  ` npm install -g typescript `
+  `npm install -g typescript`
   
   Após isso, é necessário instalar as dependências, com o seguinte comando:
 
