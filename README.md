@@ -27,17 +27,17 @@ Além disso, notificações são enviadas para o email dos usuários em situaç�
 
 ## Instalação
   
-Requisitos:
-  
-Typescript:
-  
-       npm install -g typescript
-
+ 
 Clone o repositório com o seguinte comando:
 
        git clone https://github.com/utfpr/carona-back.git
 
-Na sequência, acesse o diretório clonado e instale as dependências, com o seguinte comando:
+
+Na sequência, acesse o diretório do repositório clonado e instale o Typescript com o seguinte comando:
+  
+       npm install -g typescript
+
+Ainda no mesmo diretório, instale as dependências do projeto, com o seguinte comando:
 
        npm install
 
@@ -45,27 +45,29 @@ Após a instalação das dependências, crie a imagem no docker. Para isso, deve
 
        docker run -d --name carona -p 5433:5432 -e POSTGRES_PASSWORD=123456 postgres:13.5
 
-É necessário executar o comando para criar o modelo do banco
-
-       npx prisma migrate dev
-
-Após a correta execução dos comandos, a aplicação deve estar devidamente configurada. 
-
 Na sequência é necessário criar um arquivo `.env`. O modelo pode ser encontrado no arquivo `.env.example` localizado na raiz do projeto.
 
-Se você rodar o sistema em modo local (servidores backend e frontend na mesma máquina), apenas renomeie o arquivo `.env.example` para `.env`
+Se você rodar o sistema em modo local (servidores backend e frontend na mesma máquina), apenas crie uma cópia do arquivo `.env.example` para `.env`
+
+       cp .env.example .env
 
 Caso contrário, é necessário inserir a porta utilizada para a API, a url do banco de dados, uma chave para assinar e verificar os JSON Web Tokens.
 
 Opcionalmente, caso deseje o funcionamento das notificações, um email e senha para APP de onde serão enviadas as notificações do aplicativo. Neste [link](https://support.google.com/accounts/answer/185833?hl=pt-BR) você pode encontrar mais informações de como cadastrar uma senha de aplicativo no email.
 
-Com o .env devidamente configurado, podemos povoar o banco de dados com dados sintéticos:
+Com o .env devidamente configurado, é necessário executar o comando para criar o modelo do banco de dados:
 
-       npm run prisma/seed.ts
+       npx prisma migrate dev
+
+Você será solicitado a dar um nome para a nova migration. Escolha um nome que lhe for conveniente, como por exemplo, `carona`.
+
+Opcionalmente, podemos povoar o banco de dados com dados sintéticos:
+
+       npm run seed
 
 Em seguida, use o seguinte comando para inicializar a aplicação. 
 
-       npm rum start:dev
+       npm run start:dev
 
 Os dados sintéticos do banco possuem seis usuários (numerados de 1 a 6) com a mesma senha para acesso ao sistema, no seguinte padrão:
 
