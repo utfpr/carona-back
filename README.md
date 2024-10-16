@@ -29,7 +29,7 @@ Além disso, notificações são enviadas para o email dos usuários em situaç�
   
 Requisitos:
   
-- Typescript:
+Typescript:
   
        npm install -g typescript
 
@@ -45,36 +45,42 @@ Após a instalação das dependências, crie a imagem no docker. Para isso, deve
 
        docker run -d --name carona -p 5433:5432 -e POSTGRES_PASSWORD=123456 postgres:13.5
 
+É necessário executar o comando para criar o modelo do banco
+
+       npx prisma migrate dev
+
 Após a correta execução dos comandos, a aplicação deve estar devidamente configurada. 
 
 Na sequência é necessário criar um arquivo `.env`. O modelo pode ser encontrado no arquivo `.env.example` localizado na raiz do projeto.
 
-É necessário inserir a porta utilizada para a API, a url do banco de dados, uma chave para assinar e verificar os JSON Web Tokens, um email e senha para APP de onde serão enviadas as notificações do aplicativo. 
+Se você rodar o sistema em modo local (servidores backend e frontend na mesma máquina), apenas renomeie o arquivo `.env.example` para `.env`
 
-Neste [link](https://www.bing.com/ck/a?!&&p=2f2547c968ceb018JmltdHM9MTcyODk1MDQwMCZpZ3VpZD0yMzg2NDM5Ni00NDlhLTYxM2QtMTNjMC01NzE1NDVlMzYwYmImaW5zaWQ9NTQ4NQ&ptn=3&ver=2&hsh=3&fclid=23864396-449a-613d-13c0-571545e360bb&psq=como+cadastrar+uma+senha+de+app+em+um+email&u=a1aHR0cHM6Ly93d3cucG9ydGFsaW5zaWdodHMuY29tLmJyL3Blcmd1bnRhcy1mcmVxdWVudGVzL2NvbW8tY3JpYXItc2VuaGEtZGUtYXBwLW5vLWdtYWlsIzp-OnRleHQ9QWNlc3NlJTIwc3VhJTIwQ29udGElMjBkbyUyMEdvb2dsZS4lMjBTZWxlY2lvbmUlMjBTZWd1cmFuJUMzJUE3YS4lMjBFbSxvbmRlJTIwdXNhciVDMyVBMSUyMGElMjBzZW5oYSUyMGRlJTIwYXBwLiUyMFNlbGVjaW9uZSUyMEdlcmFyLg&ntb=1) você pode encontrar mais informações de como cadastrar uma senha de aplicativo no email.
+Caso contrário, é necessário inserir a porta utilizada para a API, a url do banco de dados, uma chave para assinar e verificar os JSON Web Tokens.
 
-  Com o .env devidamente configurado, pode-se utilizar o comando 
+Opcionalmente, caso deseje o funcionamento das notificações, um email e senha para APP de onde serão enviadas as notificações do aplicativo. Neste [link](https://support.google.com/accounts/answer/185833?hl=pt-BR) você pode encontrar mais informações de como cadastrar uma senha de aplicativo no email.
 
-  `ts-node-dev ./prisma/seed.ts`
+Com o .env devidamente configurado, podemos povoar o banco de dados com dados sintéticos:
 
-  para povoar o banco de dados, seguido do comando
+       npm run prisma/seed.ts
 
-  `ts-node-dev ./src/main.ts`
+Em seguida, use o seguinte comando para inicializar a aplicação. 
 
-  para inicializar a aplicação. 
+       npm rum start:dev
 
-  Caso não queira povoar o banco, pode-se utilizar diretamente o segundo comando. 
+Os dados sintéticos do banco possuem seis usuários (numerados de 1 a 6) com a mesma senha para acesso ao sistema, no seguinte padrão:
 
-  Caso povoe o banco e deseja acessar algum dos usuários já criados, as informações de login desses usuários são:
+`Nome: Usuário 1`
+`Email: usuario1@gmail.com`
+`Senha: Abcde1234.`
+
+Para fazer login, escolha um usário utilize o email e a senha provida para acessar o sistema pelo frontend.
 
             email: 'usuario[número de usuário]@gmail.com',
             password: 'Abcde1234.'
 
-  No total, 6 usuários são cadastrados por esse comando, e cada um possui como diferença no login apenas o número(de 1 a 6) no espaço [número do usuário] no email.
-    
 
 ## Licença
-O projeto trata-se de um software livre.
+O projeto utiliza a Licença de Software Livre MIT.
 
 ## Autores
   - William Wallace Teodoro Rodrigues - williamwallace@alunos.utfpr.edu.br
