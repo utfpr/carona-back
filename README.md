@@ -26,24 +26,32 @@ Além disso, notificações são enviadas para o email dos usuários em situaç�
 - Autores
 
 ## Instalação
-  Primeiramente, é necessária a execução do seguinte comando para a instalação do typescript:
   
-  `npm install -g typescript`
+Requisitos:
   
-  Após isso, é necessário instalar as dependências, com o seguinte comando:
+- Typescript:
+  
+       npm install -g typescript
 
-  `npm install`
+Clone o repositório com o seguinte comando:
 
-  Com as dependências instaladas, é importante criar a imagem no docker. Para isso, deve-se utilizar o comando
+       git clone https://github.com/utfpr/carona-back.git
 
-  `docker run -d --name carona -p 5433:5432 -e POSTGRES_PASSWORD=123456 postgres:13.5`
+Na sequência, acesse o diretório clonado e instale as dependências, com o seguinte comando:
 
-  Com isso, a aplicação está devidamente configurada. Então, é necessário criar um documento .env. O modelo pode ser encontrado no arquivo 
+       npm install
 
-  `.env.example`
+Após a instalação das dependências, crie a imagem no docker. Para isso, deve-se utilizar o comando:
 
-  Nele, serão necessárias as inserções da porta utilizada para a API, a url do banco de dados, uma chave para assinar e verificar os JSON Web Tokens, e um email e senha para APP de onde serão enviadas as notificações do aplicativo. 
-  Neste [link](https://www.bing.com/ck/a?!&&p=2f2547c968ceb018JmltdHM9MTcyODk1MDQwMCZpZ3VpZD0yMzg2NDM5Ni00NDlhLTYxM2QtMTNjMC01NzE1NDVlMzYwYmImaW5zaWQ9NTQ4NQ&ptn=3&ver=2&hsh=3&fclid=23864396-449a-613d-13c0-571545e360bb&psq=como+cadastrar+uma+senha+de+app+em+um+email&u=a1aHR0cHM6Ly93d3cucG9ydGFsaW5zaWdodHMuY29tLmJyL3Blcmd1bnRhcy1mcmVxdWVudGVzL2NvbW8tY3JpYXItc2VuaGEtZGUtYXBwLW5vLWdtYWlsIzp-OnRleHQ9QWNlc3NlJTIwc3VhJTIwQ29udGElMjBkbyUyMEdvb2dsZS4lMjBTZWxlY2lvbmUlMjBTZWd1cmFuJUMzJUE3YS4lMjBFbSxvbmRlJTIwdXNhciVDMyVBMSUyMGElMjBzZW5oYSUyMGRlJTIwYXBwLiUyMFNlbGVjaW9uZSUyMEdlcmFyLg&ntb=1) você pode encontrar mais informações de como cadastrar uma senha de aplicativo no email.
+       docker run -d --name carona -p 5433:5432 -e POSTGRES_PASSWORD=123456 postgres:13.5
+
+Após a correta execução dos comandos, a aplicação deve estar devidamente configurada. 
+
+Na sequência é necessário criar um arquivo `.env`. O modelo pode ser encontrado no arquivo `.env.example` localizado na raiz do projeto.
+
+É necessário inserir a porta utilizada para a API, a url do banco de dados, uma chave para assinar e verificar os JSON Web Tokens, um email e senha para APP de onde serão enviadas as notificações do aplicativo. 
+
+Neste [link](https://www.bing.com/ck/a?!&&p=2f2547c968ceb018JmltdHM9MTcyODk1MDQwMCZpZ3VpZD0yMzg2NDM5Ni00NDlhLTYxM2QtMTNjMC01NzE1NDVlMzYwYmImaW5zaWQ9NTQ4NQ&ptn=3&ver=2&hsh=3&fclid=23864396-449a-613d-13c0-571545e360bb&psq=como+cadastrar+uma+senha+de+app+em+um+email&u=a1aHR0cHM6Ly93d3cucG9ydGFsaW5zaWdodHMuY29tLmJyL3Blcmd1bnRhcy1mcmVxdWVudGVzL2NvbW8tY3JpYXItc2VuaGEtZGUtYXBwLW5vLWdtYWlsIzp-OnRleHQ9QWNlc3NlJTIwc3VhJTIwQ29udGElMjBkbyUyMEdvb2dsZS4lMjBTZWxlY2lvbmUlMjBTZWd1cmFuJUMzJUE3YS4lMjBFbSxvbmRlJTIwdXNhciVDMyVBMSUyMGElMjBzZW5oYSUyMGRlJTIwYXBwLiUyMFNlbGVjaW9uZSUyMEdlcmFyLg&ntb=1) você pode encontrar mais informações de como cadastrar uma senha de aplicativo no email.
 
   Com o .env devidamente configurado, pode-se utilizar o comando 
 
