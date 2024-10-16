@@ -34,13 +34,7 @@ Clone o repositório com o seguinte comando:
 git clone https://github.com/utfpr/carona-back.git
 ```
 
-Na sequência, acesse o diretório do repositório clonado e instale o Typescript com o seguinte comando:
-
-```bash
-npm install typescript
-```
-
-Ainda no mesmo diretório, instale as dependências do projeto, com o seguinte comando:
+Na sequência, acesse o diretório do repositório clonado e instale as dependências do projeto, com o seguinte comando:
 
 ```bash
 npm install
