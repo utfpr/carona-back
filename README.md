@@ -32,7 +32,7 @@ Além disso, notificações são enviadas para o email dos usuários em situaç�
   
   Após isso, é necessário instalar as dependências, com o seguinte comando:
 
-    `npm install`
+  `npm install`
 
   Com as dependências instaladas, é importante criar a imagem no docker. Para isso, deve-se utilizar o comando
 
